@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_helpres_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 13:38:47 by akalmyko          #+#    #+#             */
-/*   Updated: 2017/01/10 15:31:58 by akalmyko         ###   ########.fr       */
+/*   Created: 2017/01/11 12:52:57 by akalmyko          #+#    #+#             */
+/*   Updated: 2017/01/11 12:52:59 by akalmyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * write, read, malloc, free, exit
- */
-
 #include "../shared_s/push_swap.h"
 
-int		main(int argc, char **argv)
+int		ft_atoi_werror(const char *str, int *error)
 {
-	int 	*tab;
+	int	result;
+	int	sign;
 
-	if (argc > 1)
+	sign = 1;
+	result = 0;
+	*error = 0;
+	if (str)
 	{
-		ft_validator(argc - 1, argv, *&tab);
-		free(tab);
+		while (ft_isspace(*str))
+			str++;
+		if (*str == '-')
+			sign = -1;
+		if (*str == '+' || *str == '-')
+			str++;
+		while (ft_isdigit(*str))
+		{
+			result = 10 * result + (*str - '0');
+			(*error)++;
+			str++;
+		}
 	}
+	return (result * sign);
 }

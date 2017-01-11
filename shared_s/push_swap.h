@@ -14,10 +14,14 @@
 # define PUSH_SWAP
 // delete
 # pragma GCC diagnostic ignored "-Wunused-parameter"
+# pragma GCC diagnostic ignored "-Wunused-function"
 
 
 # include "../libft/libft/libft.h"
 
-void	ft_nothing(void);
+int		ft_isinorder(int *tab, int size);
+void	ft_validator(int argc, char **argv, int *tab);
+int		ft_atoi_werror(const char *str, int *error);
+void 	ft_error(void);
 
 #endif
