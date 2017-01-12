@@ -14,8 +14,8 @@
 
 int		ft_atoi_werror(const char *str, int *error)
 {
-	int	result;
-	int	sign;
+	long long	result;
+	long long	sign;
 
 	sign = 1;
 	result = 0;
@@ -35,5 +35,13 @@ int		ft_atoi_werror(const char *str, int *error)
 			str++;
 		}
 	}
-	return (result * sign);
+	result = result * sign;
+	if (result < -2147483648 || result > 2147483647)
+		return (*error = 0);
+	return ((int)result);
 }
+
+//void			ft_error(void)
+//{
+//	ft_putstr_fd("Error\n", 2);
+//}
