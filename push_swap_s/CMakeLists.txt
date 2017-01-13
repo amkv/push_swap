@@ -8,6 +8,8 @@ set(SOURCE_FILES
 		ft_operations_1.c
 		ft_operations_2.c
 		ft_operations_3.c
+		ft_print_stacks.c
+		ft_newlst_stks.c
 		)
 
 

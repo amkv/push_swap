@@ -10,30 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 # define MAXINT 2147483647
 # define MININT -2147483648
 # include "../libft/libft/libft.h"
 # pragma GCC diagnostic ignored "-Wunused-parameter"
 # pragma GCC diagnostic ignored "-Wunused-function"
+# pragma GCC diagnostic ignored "-Wunused-variable"
+//# pragma GCC diagnostic ignored "-Wreturn-type"
 
-int		ft_validator(int argc, char **argv, int *tab, int *flag);
-int		ft_isinorder(int *tab, int size);
-int		ft_isduplicates(int *tab, int size);
-int		ft_atoi_werror(const char *str, int *error);
 
-void	ft_print_stacks(int *stack_a, int *stack_b, int *points, int flag);
-void	sa(int *stack_a, int *points);
-void	sb(int *stack_b, int *points);
-void	ss(int *stack_a, int *stack_b, int *points);
-void	pa(int *stack_a, int *stack_b, int *points);
-void	pb(int *stack_a, int *stack_b, int *points);
-void	ra(int *stack_a, int *points);
-void	rb(int *stack_b, int *points);
-void	rr(int *stack_a, int *stack_b, int *points);
-void	rra(int *stack_a, int *points);
-void	rrb(int *stack_b, int *points);
-void	rrr(int *stack_b, int *points);
+typedef struct	s_stack
+{
+	int			*stk_a;			// стек *a
+	int			*stk_b;			// стек *b
+	int			top_a;			// номер ячейки вершины стека
+	int			top_b;			// номер ячейки вершины стека
+	int			elems_a;		// переменное количество элементов в массиве
+	int			elems_b;		// переменное количество элементов в массиве
+	int			size;			// размер массива (количество элементов всего)
+	int			flag; 			// -v индикатор флага (0 - нет, 1 - есть)
+	int			operations; 	// количество операций перемещения
+	int 		step;			// шагов для печати
+	int			buf_a;			// темповый буфер для манипуляций
+	int			buf_b;			// темповый буфер для манипуляций
+	int 		print_flag_a;	// флаг для печати пустых ячеек
+	int 		print_flag_b;	// флаг для печати пустых ячеек
+	char 		last[4];		// название последней команды
+}				t_stack;
+
+int				ft_validator(int argc, char **argv, int *tab, int *flag);
+int				ft_isinorder(int *tab, int size);
+int				ft_isduplicates(int *tab, int size);
+int				ft_atoi_werror(const char *str, int *error);
+t_stack			*ft_new_stks(int *stack_a, int size, int flag);
+void			ft_print_stacks(t_stack *stks);
+//void			ft_print_commands(char **commands, int size);
+void			ft_free_all(int *copy_tab, t_stack *stks);
+
+void			sa(t_stack *stks);
+void			sb(t_stack *stks);
+void			ss(t_stack *stks);
+void			pa(t_stack *stks);
+void			pb(t_stack *stks);
+void			ra(t_stack *stks);
+void			rb(t_stack *stks);
+void			rr(t_stack *stks);
+void			rra(t_stack *stks);
+void			rrb(t_stack *stks);
+void			rrr(t_stack *stks);
 
 #endif
