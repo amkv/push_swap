@@ -41,16 +41,13 @@ static void		ft_print_stack_b(int *elem_b, int *top_b, t_stack *stks)
 	if ((*elem_b))
 	{
 		if (ft_print_empty(stks, 'b') == 1)
-		{
-			ft_printf("\n");
-			return ;
-		}
+			return ((void)ft_printf("\n"));
 		ft_printf("%d\n", stks->stk_b[(*top_b)]);
 		(*top_b)++;
 		(*elem_b)--;
 	}
 	else
-		ft_printf("%\n");
+		ft_printf("\n");
 }
 
 static void		ft_print_stack_a(int *elem_a, int *top_a, t_stack *stks, int *i)
@@ -59,16 +56,13 @@ static void		ft_print_stack_a(int *elem_a, int *top_a, t_stack *stks, int *i)
 	if ((*elem_a))
 	{
 		if (ft_print_empty(stks, 'a') == 1)
-		{
-			ft_printf("   ");
-			return ;
-		}
+			return ((void)ft_printf("    "));
 		ft_printf("%d   ", stks->stk_a[(*top_a)]);
 		(*top_a)++;
 		(*elem_a)--;
 	}
 	else
-		ft_printf("%\n");
+		ft_printf("    ");
 }
 
 static void		ft_print_info(t_stack *stks, int num, int *index)

@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # define MAXINT 2147483647
 # define MININT -2147483648
+# define BUFF 4
 # include "../libft/libft/libft.h"
 # pragma GCC diagnostic ignored "-Wunused-parameter"
 # pragma GCC diagnostic ignored "-Wunused-function"
@@ -32,7 +33,7 @@ typedef struct	s_stack
 	int			size;			// размер массива (количество элементов всего)
 	int			flag; 			// -v индикатор флага (0 - нет, 1 - есть)
 	int			operations; 	// количество операций перемещения
-	int 		step;			// шагов для печати
+	int 		step;			// шагов печати дебаг инфо
 	int			buf_a;			// темповый буфер для манипуляций
 	int			buf_b;			// темповый буфер для манипуляций
 	int 		print_flag_a;	// флаг для печати пустых ячеек
@@ -40,14 +41,24 @@ typedef struct	s_stack
 	char 		last[4];		// название последней команды
 }				t_stack;
 
+typedef struct	s_oper
+{
+	char			*oper;
+	int 			index;
+	struct s_oper	*next;
+}				t_oper;
+
 int				ft_validator(int argc, char **argv, int *tab, int *flag);
 int				ft_isinorder(int *tab, int size);
 int				ft_isduplicates(int *tab, int size);
 int				ft_atoi_werror(const char *str, int *error);
 t_stack			*ft_new_stks(int *stack_a, int size, int flag);
-void			ft_print_stacks(t_stack *stks);
-//void			ft_print_commands(char **commands, int size);
+void			ft_read_arguments(void);
 void			ft_free_all(int *copy_tab, t_stack *stks);
+
+void			ft_print_stacks(t_stack *stks);
+void			ft_no_change(t_stack *stks);
+//void			ft_print_commands(char **commands, int size);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);

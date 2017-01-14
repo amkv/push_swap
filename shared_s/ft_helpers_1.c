@@ -12,7 +12,7 @@
 
 #include "../shared_s/push_swap.h"
 
-int		ft_atoi_werror(const char *str, int *error)
+int				ft_atoi_werror(const char *str, int *error)
 {
 	long long	result;
 	long long	sign;
@@ -41,7 +41,21 @@ int		ft_atoi_werror(const char *str, int *error)
 	return ((int)result);
 }
 
-//void			ft_error(void)
-//{
-//	ft_putstr_fd("Error\n", 2);
-//}
+void			ft_free_all(int *copy_tab, t_stack *stks)
+{
+	free(copy_tab); // можно ли его почистить прямо в stks (адрес же извествен?)
+	if (stks)
+	{
+		free(stks->stk_b);
+		free(stks);
+	}
+}
+
+void			ft_no_change(t_stack *stks)
+{
+	if (stks->flag == 0)
+		return ;
+	ft_printf("%s - - - - - - - - - - - - - %d\n",
+			  stks->last, (stks->step)++);
+	ft_printf("%10s no change\n", stks->last);
+}

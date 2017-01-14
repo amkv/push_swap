@@ -17,18 +17,13 @@
 ** Do nothing if there is only one or no elements).
 */
 
-//static void		ft_set_operation_name(t_stack *stks, char *str)
-//{
-//	ft_strcpy(stks->last, str);
-//}
-
 void		sa(t_stack *stks)
 {
-	int 	top;
+	int		top;
 
 	ft_strcpy(stks->last, "sa");
 	if (stks->elems_a < 2)
-		return (ft_print_stacks(stks));
+		return (ft_no_change(stks));
 	top = stks->top_a;
 	stks->buf_a = stks->stk_a[top];
 	stks->stk_a[top] = stks->stk_a[top + 1];
@@ -43,11 +38,11 @@ void		sa(t_stack *stks)
 
 void		sb(t_stack *stks)
 {
-	int 	top;
+	int		top;
 
 	ft_strcpy(stks->last, "sb");
 	if (stks->elems_b < 2)
-		return (ft_print_stacks(stks));
+		return (ft_no_change(stks));
 	top = stks->top_b;
 	stks->buf_b = stks->stk_b[top];
 	stks->stk_b[top] = stks->stk_b[top + 1];
@@ -62,11 +57,14 @@ void		sb(t_stack *stks)
 void		ss(t_stack *stks)
 {
 	ft_strcpy(stks->last, "ss");
+	if (stks->elems_a < 2 || stks->elems_b < 2)
+		return (ft_no_change(stks));
 	stks->buf_a = stks->flag;
 	stks->flag = 0;
 	sa(stks);
 	sb(stks);
 	stks->flag = stks->buf_a;
+	ft_strcpy(stks->last, "ss");
 	ft_print_stacks(stks);
 }
 
@@ -75,62 +73,27 @@ void		ss(t_stack *stks)
 ** Do nothing if b is empty.
 */
 
-//void	pa(t_stack *stks)
-//{
-//	int 	top_a;
-//	int 	top_b;
-//
-//	if (points[3] == 0)
-//		return (ft_print_stacks(stack_a, stack_b, points));
-//	top_a = points[0];
-//	top_b = points[2];
-//	if (points[5] != top_a)
-//		stack_a[top_a + 1] = stack_b[top_b];
-//	else
-//		stack_a[top_a] = stack_b[top_b];
-//	points[0]--;
-//	points[1]++;
-//	points[0] = points[0];
-//	points[3]--;
-//	ft_print_stacks(stack_a, stack_b, points);
-//}
-
-void	pa(t_stack *stks)
+void		pa(t_stack *stks)
 {
-	int 	top_a;
-	int 	top_b;
-	int 	size;
+	int		size;
 
 	ft_strcpy(stks->last, "pa");
 	if (stks->elems_b == 0)
-		return (ft_print_stacks(stks));
-	top_a = stks->top_a;
-	top_b = stks->top_b;
-	size = stks->size;
-
-//	int s0_a = stks->stk_a[0];
-//	int s1_a = stks->stk_a[1];
-//	int s2_a = stks->stk_a[2];
-//	int s3_a = stks->stk_a[3];
-//	int s4_a = stks->stk_a[4];
-//
-//	int s0_b = stks->stk_b[0];
-//	int s1_b = stks->stk_b[1];
-//	int s2_b = stks->stk_b[2];
-//	int s3_b = stks->stk_b[3];
-//	int s4_b = stks->stk_b[4];
-
-	stks->stk_a[top_a - 1] = stks->stk_b[top_b];
-	if (top_b == size - 1)
-		;
+		return (ft_no_change(stks));
+	size = stks->size - 1;
+	if (stks->top_a == size && stks->elems_a == 0)
+		stks->stk_a[(stks->top_a)] = stks->stk_b[(stks->top_b)];
 	else
-		(stks->top_b)--;
-
-
-
-	(stks->elems_a)++;
-	(stks->top_a)--;
+	{
+		stks->stk_a[((stks->top_a) - 1)] = stks->stk_b[(stks->top_b)];
+		(stks->top_a)--;
+	}
+	if (stks->top_b != size)
+		(stks->top_b)++;
+	else
+		stks->top_b = size;
 	(stks->elems_b)--;
+	(stks->elems_a)++;
 	ft_print_stacks(stks);
 }
 
@@ -139,41 +102,25 @@ void	pa(t_stack *stks)
 ** Do nothing if a is empty.
 */
 
-void	pb(t_stack *stks)
+void		pb(t_stack *stks)
 {
-	int 	top_a;
-	int 	top_b;
-	int 	size;
+	int		size;
 
 	ft_strcpy(stks->last, "pb");
 	if (stks->elems_a == 0)
-		return (ft_print_stacks(stks));
-	top_a = stks->top_a;
-	top_b = stks->top_b;
-	size = stks->size;
-
-//	int s0_a = stks->stk_a[0];
-//	int s1_a = stks->stk_a[1];
-//	int s2_a = stks->stk_a[2];
-//	int s3_a = stks->stk_a[3];
-//	int s4_a = stks->stk_a[4];
-//
-//	int s0_b = stks->stk_b[0];
-//	int s1_b = stks->stk_b[1];
-//	int s2_b = stks->stk_b[2];
-//	int s3_b = stks->stk_b[3];
-//	int s4_b = stks->stk_b[4];
-
-	if (top_b > 1)
+		return (ft_no_change(stks));
+	size = (stks->size - 1);
+	if (stks->top_b == size && stks->elems_b == 0)
+		stks->stk_b[(stks->top_b)] = stks->stk_a[(stks->top_a)];
+	else
 	{
-		stks->stk_b[top_b - 1] = stks->stk_a[top_a];
+		stks->stk_b[((stks->top_b) - 1)] = stks->stk_a[(stks->top_a)];
 		(stks->top_b)--;
 	}
-	else if (top_b == 0)
-	{
-		stks->stk_b[top_b] = stks->stk_a[top_a];
-	}
-	(stks->top_a)++;
+	if (stks->top_a != size)
+		(stks->top_a)++;
+	else
+		stks->top_a = size;
 	(stks->elems_a)--;
 	(stks->elems_b)++;
 	ft_print_stacks(stks);

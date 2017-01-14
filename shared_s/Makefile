@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 16:02:12 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/11 21:04:50 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/01/13 19:20:25 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 NAME = slib.a
 RM = /bin/rm -rfv
 RMS = /bin/rm -rf
-CFILES = ft_validator.c ft_helpers_1.c
+CFILES = ft_validator.c ft_helpers_1.c ft_newlst_stks.c ft_operations_1.c
+CFILES += ft_operations_2.c ft_operations_3.c ft_print_stacks.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)

@@ -5,11 +5,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -Wall -Wextra -Werror")
 
 set(SOURCE_FILES
 		main.c
-		ft_operations_1.c
-		ft_operations_2.c
-		ft_operations_3.c
-		ft_print_stacks.c
-		ft_newlst_stks.c
 		)
 
 

@@ -20,18 +20,13 @@
 
 #include "../shared_s/push_swap.h"
 
-static void		ft_read_arguments(void)
-{
-	return ;
-}
-
 int		main(int argc, char **argv)
 {
 	int *tab;
 	int *copy_tab;
 	int flag;
+	t_stack		*stks;
 //	char 	**commands;
-//	int 	num_com;
 
 	if (argc <= 1)
 		return (0);
@@ -44,9 +39,9 @@ int		main(int argc, char **argv)
 //		ft_printf("OK\n");
 	else
 	{
-		ft_printf("это checker и \n");
-		ft_printf("с этим надо что-то делать\n");
-//		ft_read_arguments(commands);
+		ft_printf("processing...\n\n");
+		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
+		ft_read_arguments();
 //		ft_use_commands(commands, tab);
 	}
 	free(copy_tab);
