@@ -12,56 +12,64 @@
 
 #include "../shared_s/push_swap.h"
 
-t_oper		*ft_new_oper(char *str)
+t_oper			*ft_new_oper(char *str)
 {
-	t_oper	*new;
+	t_oper		*new;
+	static int	index;
 
 	new = (t_oper*)malloc(sizeof(t_oper) * 1);
 	new->oper = str;
-	new->index = 0;
+	new->index = ++index;
 	new->next = NULL;
 	return (new);
 }
 
-t_oper		*ft_add_oper(t_oper *oper, t_oper *next)
+void			ft_add_oper(t_oper **commands, t_oper **new)
 {
-	if (oper == NULL)
-		oper = ft_new_oper(NULL);
+	if (*commands != NULL)
+	{
+		(*commands)->next = *new;
+		*new = *commands;
+	}
 	else
-		oper->next = next;
-	return (oper);
+		*commands = *new;
 }
 
-void		ft_read_arguments(void)
+static int		ft_get_arg(char **argument)
 {
-	char 	buf[BUFF];
-	char 	*res;
-	ssize_t num;
-	t_oper	*operators;
+	char 		buf[BUFF];
 
 	ft_bzero(buf, BUFF);
+	if (read(0, buf, BUFF) == -1)
+		return (-1);
+	if (buf[0] != '\n' && buf[2] != '\n' && buf[3] != '\n')
+		return (-1);
+	if (buf[0] == '\n')
+		return (0);
+	*argument = ft_strnew(BUFF);
+	ft_memcpy(*argument, buf, BUFF);
+	return (1);
+}
+
+int				ft_read_arguments(t_oper *commands)
+{
+	t_oper		*new;
+	char		*argument;
+	int			error;
+
+	commands = NULL;
 	while (1)
 	{
-		if ((num = read(0, buf, BUFF)) == -1)
-		{
-			ft_putstr_fd("Error", 2);
+		error = ft_get_arg(&argument);
+		if (error == -1)
+			return (-1);
+		if (error == 0)
 			break ;
-		}
-//		if (num > 4)
-//			continue ;
-		res = ft_strnew(BUFF);
-		ft_memcpy(res, buf, BUFF);
-		ft_printf("len: %d",  ft_strlen(buf));
-		ft_bzero(buf, BUFF);
-		if (ft_strcmp(res, "\n") == 0)
+		if (error == 1)
 		{
-			free(res);
-			break ;
+			new = ft_new_oper(argument);
+			ft_add_oper(&commands, &new);
 		}
-		else
-			res[3] = '\0';
-
-		ft_printf("%s\n", res);
-		res = NULL;
 	}
+	return (1);
 }

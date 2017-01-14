@@ -20,13 +20,26 @@
 
 #include "../shared_s/push_swap.h"
 
+
+static void		ft_print_commands(t_oper *commands)
+{
+	t_oper		*copy;
+
+	copy = commands;
+	while (copy)
+	{
+		ft_printf("%s\n", copy->oper);
+		copy = copy->next;
+	}
+}
+
 int		main(int argc, char **argv)
 {
-	int *tab;
-	int *copy_tab;
-	int flag;
+	int			*tab;
+	int			*copy_tab;
+	int			flag;
 	t_stack		*stks;
-//	char 	**commands;
+	t_oper		*commands;
 
 	if (argc <= 1)
 		return (0);
@@ -35,14 +48,17 @@ int		main(int argc, char **argv)
 	copy_tab = tab;
 	if (ft_validator(argc - 1, argv, *&tab, &flag) == -1)
 		ft_putstr_fd("Error\n", 2);
-//	else if (ft_isinorder(tab, argc - flag - 1) == 1)
-//		ft_printf("OK\n");
+	else if (ft_isinorder(tab, argc - flag - 1) == 1)
+		ft_printf("OK\n");
 	else
 	{
 		ft_printf("processing...\n\n");
 		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
-		ft_read_arguments();
-//		ft_use_commands(commands, tab);
+		if (ft_read_arguments(*&commands) == -1)
+			ft_putstr_fd("Error\n", 2);
+		else
+			ft_print_commands(commands);
+//			ft_use_commands(commands, stks);
 	}
 	free(copy_tab);
 	return (0);
