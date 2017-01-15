@@ -19,6 +19,7 @@ t_oper				*ft_new_oper(char *str)
 
 	new = (t_oper*)malloc(sizeof(t_oper) * 1);
 	new->oper = str;
+	new->command = 0;
 	new->index = ++index;
 	new->next = NULL;
 	return (new);
@@ -62,25 +63,6 @@ static int			ft_get_arg(char **argument)
 	return (1);
 }
 
-static void			ft_free_commands(t_oper **commands)
-{
-	t_oper			*copy;
-	t_oper			*holder;
-
-	copy = *commands;
-	if (copy == NULL)
-		return ;
-	while (copy)
-	{
-		holder = copy->next;
-		free(copy->oper);
-		free(copy);
-		copy = NULL;
-		copy = holder;
-	}
-	*commands = NULL;
-}
-
 int					ft_read_arguments(t_oper **commands)
 {
 	t_oper			*new;
@@ -99,6 +81,12 @@ int					ft_read_arguments(t_oper **commands)
 		if (error == 0)
 			break ;
 		new = ft_new_oper(argument);
+		new->command = ft_command_index(argument);
+		if (new->command == -1)
+		{
+			ft_free_commands(*&commands);
+			return (-1);
+		}
 		ft_add_oper(*&commands, &new);
 	}
 	return (1);

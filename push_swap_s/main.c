@@ -21,7 +21,7 @@ int				main(int argc, char **argv)
 	int			*tab;
 	int			*copy_tab;
 	int			flag;
-//	char		**commands;
+	t_oper		*commands;
 	t_stack		*stks;
 
 	if (argc <= 1)
@@ -30,6 +30,7 @@ int				main(int argc, char **argv)
 		return (-1);
 	copy_tab = tab;
 	stks = NULL;
+	commands = NULL;
 	if (ft_validator(argc - 1, argv, *&tab, &flag) == -1)
 		ft_putstr_fd("Error\n", 2);
 //	else if (ft_isinorder(tab, argc - flag - 1) == 1)
@@ -38,10 +39,12 @@ int				main(int argc, char **argv)
 	{
 		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
 		ft_print_stacks(stks);
-		// commands = ft_find_the_way(stks);
-		// ft_print_commands(commands);
+//		if (ft_find_the_way(commands, stks) == -1)
+//			ft_putstr_fd("Error\n", 2);
+//		else
+//			ft_print_commands(commands);
 	}
-	ft_free_all(copy_tab, stks);
+	ft_free_all(tab, stks, &commands);
 	// free(commands);
 	return (0);
 }

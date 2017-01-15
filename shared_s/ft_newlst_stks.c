@@ -32,6 +32,7 @@ t_stack			*ft_new_stks(int *stack_a, int size, int flag)
 	stks->print_flag_a = 0;
 	stks->print_flag_b = 0;
 	ft_bzero(stks->last, 4);
+	stks->game = 0;
 	ft_print_stacks(stks);
 	return (stks);
 }

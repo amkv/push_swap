@@ -16,9 +16,9 @@
 # define MININT -2147483648
 # define BUFF 4
 # include "../libft/libft/libft.h"
-# pragma GCC diagnostic ignored "-Wunused-parameter"
-# pragma GCC diagnostic ignored "-Wunused-function"
-# pragma GCC diagnostic ignored "-Wunused-variable"
+//# pragma GCC diagnostic ignored "-Wunused-parameter"
+//# pragma GCC diagnostic ignored "-Wunused-function"
+//# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
 
 
@@ -38,6 +38,7 @@ typedef struct	s_stack
 	int			buf_b;			// темповый буфер для манипуляций
 	int 		print_flag_a;	// флаг для печати пустых ячеек
 	int 		print_flag_b;	// флаг для печати пустых ячеек
+	int 		game;			// флаг для игрового режима
 	char 		last[4];		// название последней команды
 }				t_stack;
 
@@ -45,6 +46,7 @@ typedef struct	s_oper
 {
 	char			*oper;
 	int 			index;
+	int 			command;
 	struct s_oper	*next;
 }				t_oper;
 
@@ -54,13 +56,14 @@ int				ft_isduplicates(int *tab, int size);
 int				ft_atoi_werror(const char *str, int *error);
 t_stack			*ft_new_stks(int *stack_a, int size, int flag);
 int				ft_read_arguments(t_oper **commands);
-void			ft_free_all(int *copy_tab, t_stack *stks);
-void			ft_add_oper(t_oper **commands, t_oper **new);
 t_oper			*ft_new_oper(char *str);
-
+void			ft_add_oper(t_oper **commands, t_oper **new);
+int				ft_command_index(char *str);
+void			ft_print_commands(t_oper *commands);
 void			ft_print_stacks(t_stack *stks);
+void			ft_free_all(int *tab, t_stack *stks, t_oper **commands);
+void			ft_free_commands(t_oper **commands);
 void			ft_no_change(t_stack *stks);
-//void			ft_print_commands(char **commands, int size);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);

@@ -12,25 +12,6 @@
 
 #include "../shared_s/push_swap.h"
 
-//int				ft_isinorder(int *tab, int size)
-//{
-//	int			index;
-//	int			number;
-//
-//	index = 0;
-//	number = tab[index];
-//	index++;
-//	while (index < size)
-//	{
-//		if (number < tab[index])
-//			number = tab[index];
-//		else
-//			return (0);
-//		index++;
-//	}
-//	return (1);
-//}
-
 int				ft_isinorder(int *tab, int size)
 {
 	int			index;
