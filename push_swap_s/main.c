@@ -16,11 +16,44 @@
  * PUSH_SWAP
  */
 
+//int				main(int argc, char **argv)
+//{
+//	int			*tab;
+//	int			*copy_tab;
+//	int			flag;
+//	t_oper		*commands;
+//	t_stack		*stks;
+//
+//	if (argc <= 1)
+//		return (0);
+//	if (!(tab = (int*)malloc(sizeof(int) * argc - 1)))
+//		return (-1);
+//	copy_tab = tab;
+//	stks = NULL;
+//	commands = NULL;
+//	if (ft_validator(argc - 1, argv, *&tab, &flag) == -1)
+//		ft_putstr_fd("Error\n", 2);
+////	else if (ft_isinorder(tab, argc - flag - 1) == 1)
+////		ft_printf("");
+//	else
+//	{
+//		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
+//		ft_print_stacks(stks);
+////		if (ft_find_the_way(commands, stks) == -1)
+////			ft_putstr_fd("Error\n", 2);
+////		else
+////			ft_print_commands(commands);
+//	}
+//	ft_free_all(tab, stks, &commands);
+//	// free(commands);
+//	return (0);
+//}
+
 int				main(int argc, char **argv)
 {
 	int			*tab;
 	int			*copy_tab;
-	int			flag;
+	int			*flags;
 	t_oper		*commands;
 	t_stack		*stks;
 
@@ -31,20 +64,20 @@ int				main(int argc, char **argv)
 	copy_tab = tab;
 	stks = NULL;
 	commands = NULL;
-	if (ft_validator(argc - 1, argv, *&tab, &flag) == -1)
+	if (ft_validator(argc - 1, argv, *&tab, &flags) == -1)
 		ft_putstr_fd("Error\n", 2);
 //	else if (ft_isinorder(tab, argc - flag - 1) == 1)
 //		ft_printf("");
 	else
 	{
-		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
+		ft_printf("processing...\n");
+		stks = ft_new_stks(*&copy_tab, argc - flags[0] - flags[1] - 1, flags);
 		ft_print_stacks(stks);
 //		if (ft_find_the_way(commands, stks) == -1)
 //			ft_putstr_fd("Error\n", 2);
 //		else
 //			ft_print_commands(commands);
 	}
-	ft_free_all(tab, stks, &commands);
-	// free(commands);
+	ft_free_all(tab, stks, &commands, flags);
 	return (0);
 }

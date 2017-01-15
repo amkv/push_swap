@@ -50,20 +50,26 @@ typedef struct	s_oper
 	struct s_oper	*next;
 }				t_oper;
 
-int				ft_validator(int argc, char **argv, int *tab, int *flag);
+//int				ft_validator(int argc, char **argv, int *tab, int *flag);
+//t_stack			*ft_new_stks(int *stack_a, int size, int flag);
+
+int				ft_validator(int argc, char **argv, int *tab, int **flags);
+t_stack			*ft_new_stks(int *stack_a, int size, int *flag);
 int				ft_isinorder(int *tab, int size);
 int				ft_isduplicates(int *tab, int size);
 int				ft_atoi_werror(const char *str, int *error);
-t_stack			*ft_new_stks(int *stack_a, int size, int flag);
 int				ft_read_arguments(t_oper **commands);
 t_oper			*ft_new_oper(char *str);
 void			ft_add_oper(t_oper **commands, t_oper **new);
 int				ft_command_index(char *str);
+int				ft_get_arg(char **argument);
 void			ft_print_commands(t_oper *commands);
 void			ft_print_stacks(t_stack *stks);
-void			ft_free_all(int *tab, t_stack *stks, t_oper **commands);
+void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags);
 void			ft_free_commands(t_oper **commands);
 void			ft_no_change(t_stack *stks);
+
+void			ft_game_mode(t_stack *stks);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);

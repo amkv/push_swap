@@ -12,6 +12,34 @@
 
 #include "../shared_s/push_swap.h"
 
+int					ft_command_index(char *str)
+{
+	if (ft_strcmp(str, "sa\n") == 0)
+		return (0);
+	else if (ft_strcmp(str, "sb\n") == 0)
+		return (1);
+	else if (ft_strcmp(str, "ss\n") == 0)
+		return (2);
+	else if (ft_strcmp(str, "pa\n") == 0)
+		return (3);
+	else if (ft_strcmp(str, "pb\n") == 0)
+		return (4);
+	else if (ft_strcmp(str, "ra\n") == 0)
+		return (5);
+	else if (ft_strcmp(str, "rb\n") == 0)
+		return (6);
+	else if (ft_strcmp(str, "rr\n") == 0)
+		return (7);
+	else if (ft_strcmp(str, "rra\n") == 0)
+		return (8);
+	else if (ft_strcmp(str, "rrb\n") == 0)
+		return (9);
+	else if (ft_strcmp(str, "rrr\n") == 0)
+		return (10);
+	else
+		return (-1);
+}
+
 t_oper				*ft_new_oper(char *str)
 {
 	t_oper			*new;
@@ -47,7 +75,7 @@ void				ft_add_oper(t_oper **commands, t_oper **new)
 		*commands = *new;
 }
 
-static int			ft_get_arg(char **argument)
+int					ft_get_arg(char **argument)
 {
 	char			buf[BUFF];
 

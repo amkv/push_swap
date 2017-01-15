@@ -16,34 +16,6 @@
 
 #include "../shared_s/push_swap.h"
 
-int				ft_command_index(char *str)
-{
-	if (ft_strcmp(str, "sa\n") == 0)
-		return (0);
-	else if (ft_strcmp(str, "sb\n") == 0)
-		return (1);
-	else if (ft_strcmp(str, "ss\n") == 0)
-		return (2);
-	else if (ft_strcmp(str, "pa\n") == 0)
-		return (3);
-	else if (ft_strcmp(str, "pb\n") == 0)
-		return (4);
-	else if (ft_strcmp(str, "ra\n") == 0)
-		return (5);
-	else if (ft_strcmp(str, "rb\n") == 0)
-		return (6);
-	else if (ft_strcmp(str, "rr\n") == 0)
-		return (7);
-	else if (ft_strcmp(str, "rra\n") == 0)
-		return (8);
-	else if (ft_strcmp(str, "rrb\n") == 0)
-		return (9);
-	else if (ft_strcmp(str, "rrr\n") == 0)
-		return (10);
-	else
-		return (-1);
-}
-
 static void		ft_use_commands(t_oper *commands, t_stack *stks)
 {
 	t_oper		*copy;
@@ -72,16 +44,10 @@ static void		ft_use_commands(t_oper *commands, t_stack *stks)
 		ft_printf("KO\n");
 }
 
-static void		ft_game_mode(t_stack *stks)
-{
-
-	return ;
-}
-
 int				main(int argc, char **argv)
 {
 	int			*tab;
-	int			flag;
+	int			*flags;
 	t_stack		*stks;
 	t_oper		*commands;
 
@@ -91,18 +57,18 @@ int				main(int argc, char **argv)
 		return (-1);
 	stks = NULL;
 	commands = NULL;
-	if (ft_validator(argc - 1, argv, *&tab, &flag) == -1)
+	if (ft_validator(argc - 1, argv, *&tab, &flags) == -1)
 		ft_putstr_fd("Error\n", 2);
 	else
 	{
-		stks = ft_new_stks(*&tab, argc - flag - 1, flag);
-		if (stks->game == 1)
+		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1] - 1, flags);
+		if (stks->game == 1 && (stks->flag = 1))
 			ft_game_mode(stks);
 		else if (ft_read_arguments(&commands) == -1)
 			ft_putstr_fd("Error\n", 2);
 		else
 			ft_use_commands(commands, stks);
 	}
-	ft_free_all(tab, stks, &commands);
+	ft_free_all(tab, stks, &commands, flags);
 	return (0);
 }

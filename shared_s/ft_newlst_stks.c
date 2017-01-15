@@ -12,7 +12,7 @@
 
 #include "../shared_s/push_swap.h"
 
-t_stack			*ft_new_stks(int *stack_a, int size, int flag)
+t_stack			*ft_new_stks(int *stack_a, int size, int *flag)
 {
 	t_stack		*stks;
 
@@ -25,14 +25,15 @@ t_stack			*ft_new_stks(int *stack_a, int size, int flag)
 	stks->top_b = size - 1;
 	stks->elems_b = 0;
 	stks->buf_b = 0;
-	stks->flag = flag;
+	stks->flag = flag[0];
+	stks->game = flag[1];
 	stks->size = size;
 	stks->step = 0;
 	stks->operations = 0;
 	stks->print_flag_a = 0;
 	stks->print_flag_b = 0;
 	ft_bzero(stks->last, 4);
-	stks->game = 0;
-	ft_print_stacks(stks);
+	if (!flag[1])
+		ft_print_stacks(stks);
 	return (stks);
 }

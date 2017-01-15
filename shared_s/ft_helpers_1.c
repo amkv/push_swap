@@ -41,7 +41,7 @@ int				ft_atoi_werror(const char *str, int *error)
 	return ((int)result);
 }
 
-void			ft_free_all(int *tab, t_stack *stks, t_oper **commands)
+void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 {
 	free(tab);
 	if (stks)
@@ -50,6 +50,7 @@ void			ft_free_all(int *tab, t_stack *stks, t_oper **commands)
 		free(stks);
 	}
 	ft_free_commands(*&commands);
+	free(flags);
 }
 
 void			ft_free_commands(t_oper **commands)
