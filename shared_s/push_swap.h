@@ -53,7 +53,7 @@ int				ft_isinorder(int *tab, int size);
 int				ft_isduplicates(int *tab, int size);
 int				ft_atoi_werror(const char *str, int *error);
 t_stack			*ft_new_stks(int *stack_a, int size, int flag);
-int				ft_read_arguments(t_oper *commands);
+int				ft_read_arguments(t_oper **commands);
 void			ft_free_all(int *copy_tab, t_stack *stks);
 void			ft_add_oper(t_oper **commands, t_oper **new);
 t_oper			*ft_new_oper(char *str);

@@ -12,10 +12,10 @@
 
 #include "../shared_s/push_swap.h"
 
-t_oper			*ft_new_oper(char *str)
+t_oper				*ft_new_oper(char *str)
 {
-	t_oper		*new;
-	static int	index;
+	t_oper			*new;
+	static int		index;
 
 	new = (t_oper*)malloc(sizeof(t_oper) * 1);
 	new->oper = str;
@@ -24,20 +24,31 @@ t_oper			*ft_new_oper(char *str)
 	return (new);
 }
 
-void			ft_add_oper(t_oper **commands, t_oper **new)
+void				ft_add_oper(t_oper **commands, t_oper **new)
 {
+	static t_oper	*holder;
+	static int		flag;
+
 	if (*commands != NULL)
 	{
-		(*commands)->next = *new;
-		*new = *commands;
+		if (flag == 0)
+			holder = *new;
+		if (flag > 0)
+		{
+			holder->next = *new;
+			holder = *new;
+		}
+		else
+			(*commands)->next = *new;
+		flag = 1;
 	}
 	else
 		*commands = *new;
 }
 
-static int		ft_get_arg(char **argument)
+static int			ft_get_arg(char **argument)
 {
-	char 		buf[BUFF];
+	char			buf[BUFF];
 
 	ft_bzero(buf, BUFF);
 	if (read(0, buf, BUFF) == -1)
@@ -51,25 +62,44 @@ static int		ft_get_arg(char **argument)
 	return (1);
 }
 
-int				ft_read_arguments(t_oper *commands)
+static void			ft_free_commands(t_oper **commands)
 {
-	t_oper		*new;
-	char		*argument;
-	int			error;
+	t_oper			*copy;
+	t_oper			*holder;
 
-	commands = NULL;
+	copy = *commands;
+	if (copy == NULL)
+		return ;
+	while (copy)
+	{
+		holder = copy->next;
+		free(copy->oper);
+		free(copy);
+		copy = NULL;
+		copy = holder;
+	}
+	*commands = NULL;
+}
+
+int					ft_read_arguments(t_oper **commands)
+{
+	t_oper			*new;
+	char			*argument;
+	int				error;
+
+	*commands = NULL;
 	while (1)
 	{
 		error = ft_get_arg(&argument);
 		if (error == -1)
+		{
+			ft_free_commands(*&commands);
 			return (-1);
+		}
 		if (error == 0)
 			break ;
-		if (error == 1)
-		{
-			new = ft_new_oper(argument);
-			ft_add_oper(&commands, &new);
-		}
+		new = ft_new_oper(argument);
+		ft_add_oper(*&commands, &new);
 	}
 	return (1);
 }

@@ -20,7 +20,6 @@
 
 #include "../shared_s/push_swap.h"
 
-
 static void		ft_print_commands(t_oper *commands)
 {
 	t_oper		*copy;
@@ -28,7 +27,7 @@ static void		ft_print_commands(t_oper *commands)
 	copy = commands;
 	while (copy)
 	{
-		ft_printf("%s\n", copy->oper);
+		ft_printf("%s", copy->oper);
 		copy = copy->next;
 	}
 }
@@ -54,7 +53,7 @@ int		main(int argc, char **argv)
 	{
 		ft_printf("processing...\n\n");
 		stks = ft_new_stks(*&copy_tab, argc - flag - 1, flag);
-		if (ft_read_arguments(*&commands) == -1)
+		if (ft_read_arguments(&commands) == -1)
 			ft_putstr_fd("Error\n", 2);
 		else
 			ft_print_commands(commands);
