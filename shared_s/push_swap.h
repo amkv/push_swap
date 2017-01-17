@@ -16,11 +16,11 @@
 # define MININT -2147483648
 # define BUFF 4
 # include "../libft/libft/libft.h"
+
 //# pragma GCC diagnostic ignored "-Wunused-parameter"
 //# pragma GCC diagnostic ignored "-Wunused-function"
 //# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
-
 
 typedef struct	s_stack
 {
@@ -46,24 +46,22 @@ typedef struct	s_oper
 {
 	char			*oper;
 	int 			index;
-	int 			command;
+	int				command;
 	struct s_oper	*next;
 }				t_oper;
 
 typedef struct	s_history
 {
 	char				*oper;
-	int 				index;
+	int					index;
 	struct s_history	*first;
 	struct s_history	*next;
 }				t_history;
 
-//int				ft_validator(int argc, char **argv, int *tab, int *flag);
-//t_stack			*ft_new_stks(int *stack_a, int size, int flag);
-
 int				ft_validator(int argc, char **argv, int *tab, int **flags);
 t_stack			*ft_new_stks(int *stack_a, int size, int *flag);
 int				ft_isinorder(int *tab, int size);
+int				ft_is_stack_in_order(t_stack *stks);
 int				ft_isduplicates(int *tab, int size);
 int				ft_atoi_werror(const char *str, int *error);
 int				ft_read_arguments(t_oper **commands);

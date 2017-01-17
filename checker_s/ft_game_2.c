@@ -56,12 +56,12 @@ int				ft_game_act(char *argument, t_stack *stks, t_history *history)
 	else if (oper == 13)
 	{
 		if (stks->elems_a < stks->size)
-			ft_printf("warning: stack not filled,\n"
+			ft_printf("warning: stack not filled\n"
 		"only %d of %d numbers in the stack a\n", stks->elems_a, stks->size);
-		if (ft_isinorder(stks->stk_a, stks->size) == 0)
-			ft_printf("KO\n");
-		else
+		if (ft_is_stack_in_order(stks) == 1)
 			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
 	}
 	else if (oper == 14)
 		ft_print_stacks(stks);

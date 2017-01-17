@@ -27,11 +27,11 @@ int				ft_isinorder(int *tab, int size)
 	return (1);
 }
 
-int 			ft_isduplicates(int *tab, int size)
+int				ft_isduplicates(int *tab, int size)
 {
-	int 		number;
-	int 		index1;
-	int 		index2;
+	int			number;
+	int			index1;
+	int			index2;
 
 	if (size <= 1)
 		return (-1);
@@ -46,7 +46,7 @@ int 			ft_isduplicates(int *tab, int size)
 			if ((index2 + 1) < size)
 			{
 				if (tab[index2 + 1] == number)
-					return(-1);
+					return (-1);
 			}
 			index2++;
 		}
@@ -58,7 +58,6 @@ int 			ft_isduplicates(int *tab, int size)
 static int		ft_check_flags(int **flags, int *flag, char **argv, int argc)
 {
 	*flags = (int*)malloc(sizeof(int) * 2);
-
 	(*flags)[0] = 0;
 	(*flags)[1] = 0;
 	*flag = 0;
@@ -86,7 +85,7 @@ int				ft_validator(int argc, char **argv, int *tab, int **flags)
 	int			index;
 	long long	number;
 	int			atoi_error;
-	int 		flag;
+	int			flag;
 
 	index = 0;
 	if (ft_check_flags(*&flags, &flag, argv, argc) == -1)

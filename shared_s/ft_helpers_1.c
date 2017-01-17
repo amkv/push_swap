@@ -12,7 +12,7 @@
 
 #include "../shared_s/push_swap.h"
 
-int				ft_atoi_werror(const char *str, int *error)
+int			ft_atoi_werror(const char *str, int *error)
 {
 	long long	result;
 	long long	sign;
@@ -41,7 +41,7 @@ int				ft_atoi_werror(const char *str, int *error)
 	return ((int)result);
 }
 
-void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
+void		ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 {
 	free(tab);
 	if (stks)
@@ -53,7 +53,7 @@ void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 	free(flags);
 }
 
-void			ft_free_commands(t_oper **commands)
+void		ft_free_commands(t_oper **commands)
 {
 	t_oper		*copy;
 	t_oper		*holder;
@@ -72,7 +72,7 @@ void			ft_free_commands(t_oper **commands)
 	*commands = NULL;
 }
 
-void			ft_no_change(t_stack *stks)
+void		ft_no_change(t_stack *stks)
 {
 	if (stks->flag == 0)
 		return ;
@@ -81,7 +81,7 @@ void			ft_no_change(t_stack *stks)
 	ft_printf("%10s no change\n", stks->last);
 }
 
-void			ft_print_commands(t_oper *commands)
+void		ft_print_commands(t_oper *commands)
 {
 	t_oper		*copy;
 

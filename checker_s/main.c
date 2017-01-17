@@ -38,7 +38,7 @@ static void		ft_use_commands(t_oper *commands, t_stack *stks)
 		oper[copy->command](stks);
 		copy = copy->next;
 	}
-	if (ft_isinorder(stks->stk_a, stks->size) == 1)
+	if (ft_is_stack_in_order(stks) == 1)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

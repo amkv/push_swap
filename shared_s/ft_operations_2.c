@@ -32,7 +32,8 @@ void			ra(t_stack *stks)
 	{
 		if ((top + 1) == stks->size - 1)
 		{
-			break ;
+			stks->stk_a[top] = stks->stk_a[top + 1];
+			top++;
 		}
 		stks->stk_a[top] = stks->stk_a[top + 1];
 		top++;
