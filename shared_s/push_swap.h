@@ -54,6 +54,7 @@ typedef struct	s_history
 {
 	char				*oper;
 	int 				index;
+	struct s_history	*first;
 	struct s_history	*next;
 }				t_history;
 
@@ -81,7 +82,7 @@ int				ft_game_act(char *argument, t_stack *stks, t_history *history);
 void			ft_print_list_of_commands(void);
 void			ft_print_history(t_history *history, int flag);
 int				ft_check_game_command(char *str);
-t_history		*ft_add_history(t_history **history, char *oper);
+t_history		*ft_add_history(t_history **history, char *argument);
 void			ft_clean_the_game_history(t_history **history);
 char			*ft_return_oper_name(char *str);
 

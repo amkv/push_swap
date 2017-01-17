@@ -20,39 +20,38 @@ void			ft_print_list_of_commands(void)
 	ft_printf("(h) print history of commands\n(n) new game\n(q) quit\n\n");
 	ft_printf("Choose number(s) and press RETURN\n");
 	ft_printf("You can run multiple commands at one time, "
-					  "for example: 6534765 and hit RETURN\n\n");
+	"for example: 6534765 and hit RETURN\n\n");
 	ft_printf("(1) sa   swap a - swap the first 2 elements"
-					  " at the top of stack a\n");
+	" at the top of stack a\n");
 	ft_printf("(2) sb   swap b - swap the first 2 elements"
-					  " at the top of stack b\n");
+	" at the top of stack b\n");
 	ft_printf("(3) ss   sa and sb at the same time\n");
 	ft_printf("(4) pa   push a - take the first element"
-					  " at the top of b and put it at the top of a\n");
+	" at the top of b and put it at the top of a\n");
 	ft_printf("(5) pb   push b - take the first element"
-					  " at the top of a and put it at the top of b\n");
+	" at the top of a and put it at the top of b\n");
 	ft_printf("(6) ra   rotate a - shift up all elements of stack a by 1\n");
 	ft_printf("(7) rb   rotate b - shift up all elements of stack b by 1\n");
 	ft_printf("(9) rr   ra and rb at the same time\n");
 	ft_printf("(9) rra  reverse rotate a - shift down all"
-					  " elements of stack a by 1\n");
+	" elements of stack a by 1\n");
 	ft_printf("(0) rrb  reverse rotate b - shift down all"
-					  " elements of stack b by 1\n");
+	" elements of stack b by 1\n");
 	ft_printf("(-) rrr  rra and rrb at the same time\n");
-//	ft_printf("- - - - - - - - - - - - - - - \n");
 }
 
 static char		*ft_return_oper_name2(char *str)
 {
 	if (*str == 'l')
-		return (ft_strdup("list of commands"));
+		return (ft_strdup("help/usage"));
 	else if (*str == 's')
 		return (ft_strdup("is sorted?"));
 	else if (*str == '=')
 		return (ft_strdup("print the staks"));
 	else if (*str == 'h')
-		return (ft_strdup("show log"));
+		return (ft_strdup("log history"));
 	else if (*str == 'o')
-		return (ft_strdup("history of operators"));
+		return (ft_strdup("used operators list"));
 	else
 		return (NULL);
 }

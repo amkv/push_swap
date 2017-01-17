@@ -29,10 +29,11 @@ static char		*ft_game_read(void)
 	return (argument);
 }
 
-static void		ft_play_again(t_stack *stks, t_stack **stks_copy, int **a_copy, int code)
+static void		ft_play_again(t_stack *stks, t_stack **stks_copy,
+								int **a_copy, int code)
 {
-	int 		index;
-	int 		flags[2];
+	int			index;
+	int			flags[2];
 
 	if (code == 0)
 	{
@@ -55,7 +56,7 @@ static void		ft_play_again(t_stack *stks, t_stack **stks_copy, int **a_copy, int
 		free(*a_copy);
 }
 
-static void 	ft_first_launch(t_stack *stks, t_history **history)
+static void		ft_first_launch(t_stack *stks, t_history **history)
 {
 	ft_print_list_of_commands();
 	ft_print_stacks(stks);
@@ -66,8 +67,8 @@ void			ft_game_mode(t_stack *stks)
 {
 	char		*argument;
 	t_history	*history;
-	int 		code;
-	int 		*a_copy;
+	int			code;
+	int			*a_copy;
 	t_stack		*stks_copy;
 
 	code = 0;
