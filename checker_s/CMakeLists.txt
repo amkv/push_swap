@@ -6,7 +6,10 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -Wall -Wextra -Werror")
 set(SOURCE_FILES
 		main.c
 		ft_reader.c
-		ft_game.c
+		ft_game_1.c
+		ft_game_2.c
+		ft_game_3.c
+		ft_game_4.c
 		)
 
 

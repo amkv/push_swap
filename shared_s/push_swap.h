@@ -50,6 +50,13 @@ typedef struct	s_oper
 	struct s_oper	*next;
 }				t_oper;
 
+typedef struct	s_history
+{
+	char				*oper;
+	int 				index;
+	struct s_history	*next;
+}				t_history;
+
 //int				ft_validator(int argc, char **argv, int *tab, int *flag);
 //t_stack			*ft_new_stks(int *stack_a, int size, int flag);
 
@@ -70,6 +77,13 @@ void			ft_free_commands(t_oper **commands);
 void			ft_no_change(t_stack *stks);
 
 void			ft_game_mode(t_stack *stks);
+int				ft_game_act(char *argument, t_stack *stks, t_history *history);
+void			ft_print_list_of_commands(void);
+void			ft_print_history(t_history *history, int flag);
+int				ft_check_game_command(char *str);
+t_history		*ft_add_history(t_history **history, char *oper);
+void			ft_clean_the_game_history(t_history **history);
+char			*ft_return_oper_name(char *str);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);
