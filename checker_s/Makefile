@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 13:38:35 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/16 15:20:15 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/01/17 16:39:09 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SLIB = slib.a
 LIBFT_F = ../libft/
 LIBFT = libft.a
 OUT = ../
-CFILES = main.c ft_reader.c ft_game_1.c ft_game_2.c ft_game_3.c ft_game_4.c
+CFILES = main.c ft_game_1.c ft_game_2.c ft_game_3.c ft_game_4.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)

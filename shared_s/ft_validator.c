@@ -12,22 +12,36 @@
 
 #include "../shared_s/push_swap.h"
 
-int				ft_isinorder(int *tab, int size)
+static int		ft_atoi_werror(const char *str, int *error)
 {
-	int			index;
+	long long	result;
+	long long	sign;
 
-	index = 0;
-	while (index < size - 1)
+	sign = 1;
+	result = 0;
+	*error = 0;
+	if (str)
 	{
-		if (tab[index] < tab[index + 1])
-			index++;
-		else
-			return (0);
+		while (ft_isspace(*str))
+			str++;
+		if (*str == '-')
+			sign = -1;
+		if (*str == '+' || *str == '-')
+			str++;
+		while (ft_isdigit(*str))
+		{
+			result = 10 * result + (*str - '0');
+			(*error)++;
+			str++;
+		}
 	}
-	return (1);
+	result = result * sign;
+	if (result < -2147483648 || result > 2147483647)
+		return (*error = 0);
+	return ((int)result);
 }
 
-int				ft_isduplicates(int *tab, int size)
+static int		ft_isduplicates(int *tab, int size)
 {
 	int			number;
 	int			index1;

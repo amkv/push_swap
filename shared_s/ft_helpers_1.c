@@ -12,33 +12,41 @@
 
 #include "../shared_s/push_swap.h"
 
-int			ft_atoi_werror(const char *str, int *error)
+void		ft_no_change(t_stack *stks)
 {
-	long long	result;
-	long long	sign;
+	if (stks->flag == 0)
+		return ;
+	ft_printf("%s - - - - - - - - - - - - - %d\n",
+			  stks->last, (stks->step)++);
+	ft_printf("%10s no change\n", stks->last);
+}
 
-	sign = 1;
-	result = 0;
-	*error = 0;
-	if (str)
+int			ft_isinorder(int *tab, int size)
+{
+	int		index;
+
+	index = 0;
+	while (index < size - 1)
 	{
-		while (ft_isspace(*str))
-			str++;
-		if (*str == '-')
-			sign = -1;
-		if (*str == '+' || *str == '-')
-			str++;
-		while (ft_isdigit(*str))
-		{
-			result = 10 * result + (*str - '0');
-			(*error)++;
-			str++;
-		}
+		if (tab[index] < tab[index + 1])
+			index++;
+		else
+			return (0);
 	}
-	result = result * sign;
-	if (result < -2147483648 || result > 2147483647)
-		return (*error = 0);
-	return ((int)result);
+	return (1);
+}
+
+int			ft_is_stack_in_order(t_stack *stks)
+{
+	if (stks->elems_b == 0)
+	{
+		if (ft_isinorder(stks->stk_a, stks->size) == 1)
+			return (1);
+		else
+			return (-1);
+	}
+	else
+		return (-1);
 }
 
 void		ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
@@ -51,44 +59,4 @@ void		ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 	}
 	ft_free_commands(*&commands);
 	free(flags);
-}
-
-void		ft_free_commands(t_oper **commands)
-{
-	t_oper		*copy;
-	t_oper		*holder;
-
-	copy = *commands;
-	if (copy == NULL)
-		return ;
-	while (copy)
-	{
-		holder = copy->next;
-		free(copy->oper);
-		free(copy);
-		copy = NULL;
-		copy = holder;
-	}
-	*commands = NULL;
-}
-
-void		ft_no_change(t_stack *stks)
-{
-	if (stks->flag == 0)
-		return ;
-	ft_printf("%s - - - - - - - - - - - - - %d\n",
-	stks->last, (stks->step)++);
-	ft_printf("%10s no change\n", stks->last);
-}
-
-void		ft_print_commands(t_oper *commands)
-{
-	t_oper		*copy;
-
-	copy = commands;
-	while (copy)
-	{
-		ft_printf("%s", copy->oper);
-		copy = copy->next;
-	}
 }

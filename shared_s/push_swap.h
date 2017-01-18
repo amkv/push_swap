@@ -17,7 +17,7 @@
 # define BUFF 4
 # include "../libft/libft/libft.h"
 
-//# pragma GCC diagnostic ignored "-Wunused-parameter"
+# pragma GCC diagnostic ignored "-Wunused-parameter"
 //# pragma GCC diagnostic ignored "-Wunused-function"
 //# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
@@ -39,7 +39,7 @@ typedef struct	s_stack
 	int 		print_flag_a;	// флаг для печати пустых ячеек
 	int 		print_flag_b;	// флаг для печати пустых ячеек
 	int 		game;			// флаг для игрового режима
-	char 		last[4];		// название последней команды
+	char 		last[4];		// название последнего оператора
 }				t_stack;
 
 typedef struct	s_oper
@@ -58,31 +58,24 @@ typedef struct	s_history
 	struct s_history	*next;
 }				t_history;
 
+/*
+** shared functions
+*/
+
 int				ft_validator(int argc, char **argv, int *tab, int **flags);
 t_stack			*ft_new_stks(int *stack_a, int size, int *flag);
+
 int				ft_isinorder(int *tab, int size);
 int				ft_is_stack_in_order(t_stack *stks);
-int				ft_isduplicates(int *tab, int size);
-int				ft_atoi_werror(const char *str, int *error);
-int				ft_read_arguments(t_oper **commands);
-t_oper			*ft_new_oper(char *str);
-void			ft_add_oper(t_oper **commands, t_oper **new);
-int				ft_command_index(char *str);
-int				ft_get_arg(char **argument);
-void			ft_print_commands(t_oper *commands);
-void			ft_print_stacks(t_stack *stks);
 void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags);
-void			ft_free_commands(t_oper **commands);
+
+void			ft_print_stacks(t_stack *stks);
 void			ft_no_change(t_stack *stks);
 
-void			ft_game_mode(t_stack *stks);
-int				ft_game_act(char *argument, t_stack *stks, t_history *history);
-void			ft_print_list_of_commands(void);
-void			ft_print_history(t_history *history, int flag);
-int				ft_check_game_command(char *str);
-t_history		*ft_add_history(t_history **history, char *argument);
-void			ft_clean_the_game_history(t_history **history);
-char			*ft_return_oper_name(char *str);
+t_oper			*ft_new_oper(char *str);
+void			ft_add_oper(t_oper **commands, t_oper **new);
+void			ft_print_commands(t_oper *commands);
+void			ft_free_commands(t_oper **commands);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);
@@ -95,5 +88,26 @@ void			rr(t_stack *stks);
 void			rra(t_stack *stks);
 void			rrb(t_stack *stks);
 void			rrr(t_stack *stks);
+
+/*
+** checker
+*/
+
+/*
+** push_swap
+*/
+
+/*
+** game mode
+*/
+
+void			ft_game_mode(t_stack *stks);
+int				ft_game_act(char *argument, t_stack *stks, t_history *history);
+void			ft_print_list_of_commands(void);
+void			ft_print_history(t_history *history, int flag);
+int				ft_check_game_command(char *str);
+t_history		*ft_add_history(t_history **history, char *argument);
+void			ft_clean_the_game_history(t_history **history);
+char			*ft_return_oper_name(char *str);
 
 #endif
