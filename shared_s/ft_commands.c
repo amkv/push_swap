@@ -58,7 +58,8 @@ void				ft_free_commands(t_oper **commands)
 	while (copy)
 	{
 		holder = copy->next;
-		free(copy->oper);
+//		if (copy->oper)
+//			free(copy->oper);
 		free(copy);
 		copy = NULL;
 		copy = holder;
@@ -71,6 +72,8 @@ void				ft_print_commands(t_oper *commands)
 	t_oper		*copy;
 
 	copy = commands;
+	if (!copy)
+		return ;
 	while (copy)
 	{
 		ft_printf("%s", copy->oper);

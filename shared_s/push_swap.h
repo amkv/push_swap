@@ -97,6 +97,8 @@ void			rrr(t_stack *stks);
 ** push_swap
 */
 
+int				ft_find_the_way(t_oper **commands, t_stack *stks);
+
 /*
 ** game mode
 */

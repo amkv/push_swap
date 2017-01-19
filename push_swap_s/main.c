@@ -16,14 +16,6 @@
  * PUSH_SWAP
  */
 
-//static int 		ft_find_the_way(t_oper *commands, t_stack *stks)
-//{
-//	if (stks->size == 2)
-//
-//
-//	return (0);
-//}
-
 int				main(int argc, char **argv)
 {
 	int			*tab;
@@ -41,16 +33,13 @@ int				main(int argc, char **argv)
 	commands = NULL;
 	if (ft_validator(argc - 1, argv, *&tab, &flags) == -1)
 		ft_putstr_fd("Error\n", 2);
-	else if (ft_isinorder(tab, argc - flags[0] - flags[1] - 1) == 1)
-		ft_printf("");
 	else
 	{
-		ft_printf("processing...\n");
 		stks = ft_new_stks(*&copy_tab, argc - flags[0] - flags[1] - 1, flags);
-//		if (ft_find_the_way(commands, stks) == -1)
-//			ft_putstr_fd("Error\n", 2);
-//		else
-//			ft_print_commands(commands);
+		if (ft_find_the_way(&commands, *&stks) == -1)
+			ft_putstr_fd("Error\n", 2);
+		else
+			ft_print_commands(commands);
 	}
 	ft_free_all(tab, stks, &commands, flags);
 	return (0);
