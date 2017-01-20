@@ -39,6 +39,7 @@ typedef struct	s_stack
 	int 		print_flag_a;	// флаг для печати пустых ячеек
 	int 		print_flag_b;	// флаг для печати пустых ячеек
 	int 		game;			// флаг для игрового режима
+	int 		clear;			// флаг для очистки терминала
 	char 		last[4];		// название последнего оператора
 }				t_stack;
 
@@ -62,9 +63,8 @@ typedef struct	s_history
 ** shared functions
 */
 
-int				ft_validator(int argc, char **argv, int *tab, int **flags);
+int				ft_validator(int *argc, char **argv, int **tab, int **flags);
 t_stack			*ft_new_stks(int *stack_a, int size, int *flag);
-
 int				ft_isinorder(int *tab, int size);
 int				ft_is_stack_in_order(t_stack *stks);
 void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags);
@@ -76,6 +76,9 @@ t_oper			*ft_new_oper(char *str);
 void			ft_add_oper(t_oper **commands, t_oper **new);
 void			ft_print_commands(t_oper *commands);
 void			ft_free_commands(t_oper **commands);
+
+int				ft_count_words(const char *str, char c);
+int				ft_free_2d_array(char **array, int size);
 
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);

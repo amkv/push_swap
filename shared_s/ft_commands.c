@@ -76,7 +76,7 @@ void				ft_print_commands(t_oper *commands)
 		return ;
 	while (copy)
 	{
-		ft_printf("%s", copy->oper);
+		ft_printf("%s\n", copy->oper);
 		copy = copy->next;
 	}
 }

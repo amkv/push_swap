@@ -30,7 +30,7 @@ static void		ft_use_commands(int n, t_stack *stks)
 	oper[n](stks);
 }
 
-static	int		ft_game_act_2(t_history *history, int oper)
+static	int		ft_game_act_2(t_history *history, int oper, t_stack *stks)
 {
 	if (oper == 15)
 		ft_print_history(history, 1);
@@ -38,6 +38,13 @@ static	int		ft_game_act_2(t_history *history, int oper)
 		ft_print_history(history, 0);
 	if (oper == 17)
 		return (1);
+	if (oper == 18)
+	{
+		if (stks->clear == 0)
+			stks->clear = 1;
+		else if (stks->clear == 1)
+			stks->clear = 0;
+	}
 	return (0);
 }
 
@@ -66,6 +73,6 @@ int				ft_game_act(char *argument, t_stack *stks, t_history *history)
 	else if (oper == 14)
 		ft_print_stacks(stks);
 	else
-		return (ft_game_act_2(history, oper));
+		return (ft_game_act_2(history, oper, stks));
 	return (0);
 }

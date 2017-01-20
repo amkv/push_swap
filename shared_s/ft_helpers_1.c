@@ -60,3 +60,21 @@ void		ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 	ft_free_commands(*&commands);
 	free(flags);
 }
+
+int			ft_count_words(const char *str, char c)
+{
+	int i;
+
+	i = 0;
+	while (*str == c)
+		str++;
+	while (*str)
+	{
+		while (*str && *str != c)
+			str++;
+		while (*str == c)
+			str++;
+		i++;
+	}
+	return (i);
+}

@@ -27,6 +27,7 @@ t_stack			*ft_new_stks(int *stack_a, int size, int *flag)
 	stks->buf_b = 0;
 	stks->flag = flag[0];
 	stks->game = flag[1];
+	stks->clear = 0;
 	stks->size = size;
 	stks->step = 0;
 	stks->operations = 0;

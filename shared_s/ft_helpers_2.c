@@ -12,4 +12,19 @@
 
 #include "push_swap.h"
 
+int				ft_free_2d_array(char **array, int size)
+{
+	int			index;
 
+	index = 0;
+	if (!array)
+		return (-1);
+	while (index < size)
+	{
+		if (array[index])
+			free(array[index]);
+		index++;
+	}
+	free(array);
+	return (-1);
+}

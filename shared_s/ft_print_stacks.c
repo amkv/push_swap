@@ -94,6 +94,8 @@ void			ft_print_stacks(t_stack *stks)
 
 	if (stks->flag == 0)
 		return ;
+	if (stks->clear == 1)
+		ft_printf("\033[2J\033[1;1H");
 	top_a = stks->top_a;
 	elem_a = stks->elems_a;
 	top_b = stks->top_b;

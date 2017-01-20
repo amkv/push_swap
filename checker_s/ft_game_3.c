@@ -15,7 +15,7 @@
 void			ft_print_list_of_commands(void)
 {
 	ft_printf("NEW GAME started\n- - - - - - - - - - - - - - - \n");
-	ft_printf("(l) usage/HELP\n(o) used operators list\n");
+	ft_printf("(l) usage/HELP\n(o) used operators list\n(c) clean mode\n");
 	ft_printf("(s) is sorted? - check the stack order\n(=) print stacks\n");
 	ft_printf("(h) print history of commands\n(n) new game\n(q) quit\n\n");
 	ft_printf("Choose number(s) and press RETURN\n");
@@ -52,6 +52,8 @@ static char		*ft_return_oper_name2(char *str)
 		return (ft_strdup("log history"));
 	else if (*str == 'o')
 		return (ft_strdup("used operators list"));
+	else if (*str == 'c')
+		return (ft_strdup("clean screen mode"));
 	else
 		return (NULL);
 }
@@ -106,6 +108,8 @@ int				ft_check_game_command(char *str)
 		return (16);
 	else if (*str == 'n')
 		return (17);
+	else if (*str == 'c')
+		return (18);
 	else
 		return (-1);
 }

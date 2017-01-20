@@ -9,6 +9,9 @@
       <sourceFolder url="file://$MODULE_DIR$/ft_game_2.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/../shared_s/ft_print_stacks.c">
+      <sourceFolder url="file://$MODULE_DIR$/../shared_s/ft_print_stacks.c" isTestSource="false" />
+    </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">

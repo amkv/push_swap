@@ -12,7 +12,7 @@
 
 #include "../shared_s/push_swap.h"
 
-void				ft_add_command(t_oper **commands, t_stack *stks)
+void				ft_use_and_add(t_oper **commands, t_stack *stks)
 {
 	static t_oper	*holder;
 	static int		flag;
@@ -36,14 +36,21 @@ void				ft_add_command(t_oper **commands, t_stack *stks)
 		*commands = new;
 }
 
-static int 		ft_if_2(t_oper **commands, t_stack *stks)
+//static int 		ft_if_3(t_oper **commands, t_stack *stks)
+//{
+//	sa(stks);
+//	ft_use_and_add(*&commands, stks);
+//	return (1);
+//}
+
+static int			ft_if_2(t_oper **commands, t_stack *stks)
 {
 	sa(stks);
-	ft_add_command(*&commands, stks);
+	ft_use_and_add(*&commands, stks);
 	return (1);
 }
 
-int 		ft_find_the_way(t_oper **commands, t_stack *stks)
+int					ft_find_the_way(t_oper **commands, t_stack *stks)
 {
 	if (ft_is_stack_in_order(stks) == 1)
 		return (1);

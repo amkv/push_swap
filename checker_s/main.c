@@ -46,46 +46,30 @@ static void		ft_use_commands(t_oper *commands, t_stack *stks)
 
 static int		ft_command_index(char *str)
 {
-	if (ft_strcmp(str, "sa\n") == 0)
+	if (ft_strcmp(str, "sa") == 0)
 		return (0);
-	else if (ft_strcmp(str, "sb\n") == 0)
+	else if (ft_strcmp(str, "sb") == 0)
 		return (1);
-	else if (ft_strcmp(str, "ss\n") == 0)
+	else if (ft_strcmp(str, "ss") == 0)
 		return (2);
-	else if (ft_strcmp(str, "pa\n") == 0)
+	else if (ft_strcmp(str, "pa") == 0)
 		return (3);
-	else if (ft_strcmp(str, "pb\n") == 0)
+	else if (ft_strcmp(str, "pb") == 0)
 		return (4);
-	else if (ft_strcmp(str, "ra\n") == 0)
+	else if (ft_strcmp(str, "ra") == 0)
 		return (5);
-	else if (ft_strcmp(str, "rb\n") == 0)
+	else if (ft_strcmp(str, "rb") == 0)
 		return (6);
-	else if (ft_strcmp(str, "rr\n") == 0)
+	else if (ft_strcmp(str, "rr") == 0)
 		return (7);
-	else if (ft_strcmp(str, "rra\n") == 0)
+	else if (ft_strcmp(str, "rra") == 0)
 		return (8);
-	else if (ft_strcmp(str, "rrb\n") == 0)
+	else if (ft_strcmp(str, "rrb") == 0)
 		return (9);
-	else if (ft_strcmp(str, "rrr\n") == 0)
+	else if (ft_strcmp(str, "rrr") == 0)
 		return (10);
 	else
 		return (-1);
-}
-
-static int		ft_get_arg(char **argument)
-{
-	char		buf[BUFF];
-
-	ft_bzero(buf, BUFF);
-	if (read(0, buf, BUFF) == -1)
-		return (-1);
-	if (buf[0] != '\n' && buf[2] != '\n' && buf[3] != '\n')
-		return (-1);
-	if (buf[0] == '\n')
-		return (0);
-	*argument = ft_strnew(BUFF);
-	ft_memcpy(*argument, buf, BUFF);
-	return (1);
 }
 
 static int		ft_read_arguments(t_oper **commands)
@@ -97,13 +81,13 @@ static int		ft_read_arguments(t_oper **commands)
 	*commands = NULL;
 	while (1)
 	{
-		error = ft_get_arg(&argument);
+		error = get_next_line(0, &argument);
 		if (error == -1)
 		{
 			ft_free_commands(*&commands);
 			return (-1);
 		}
-		if (error == 0)
+		if (*argument == '\0')
 			break ;
 		new = ft_new_oper(argument);
 		new->command = ft_command_index(argument);
@@ -126,19 +110,17 @@ int				main(int argc, char **argv)
 
 	if (argc <= 1)
 		return (0);
-	if (!(tab = (int*)malloc(sizeof(int) * argc - 1)))
-		return (-1);
 	stks = NULL;
 	commands = NULL;
-	if (ft_validator(argc - 1, argv, *&tab, &flags) == -1)
-		ft_putstr_fd("Error\n", 2);
+	if (ft_validator(&argc, argv, &tab, &flags) == -1)
+		ft_putstr_fd("Checker_validator_Error\n", 2);
 	else
 	{
-		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1] - 1, flags);
+		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags);
 		if (stks->game == 1 && (stks->flag = 1))
 			ft_game_mode(stks);
 		else if (ft_read_arguments(&commands) == -1)
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Checker_read_Error\n", 2);
 		else
 			ft_use_commands(commands, stks);
 	}

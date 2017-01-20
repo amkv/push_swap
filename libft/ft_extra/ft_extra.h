@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_EXTRA
-#define FT_EXTRA
+#ifndef FT_EXTRA_H
+# define FT_EXTRA_H
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 void			*ft_memnncpy(void *dst, const void *src, size_t beg, size_t n);
 char			*ft_itoa_base_uintmax(uintmax_t value, uintmax_t base);
