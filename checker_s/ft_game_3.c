@@ -14,7 +14,7 @@
 
 void			ft_print_list_of_commands(void)
 {
-	ft_printf("NEW GAME started\n- - - - - - - - - - - - - - - \n");
+	ft_printf("- - - - - - - - - - - - - - - \n");
 	ft_printf("(l) usage/HELP\n(o) used operators list\n(c) clean mode\n");
 	ft_printf("(s) is sorted? - check the stack order\n(=) print stacks\n");
 	ft_printf("(h) print history of commands\n(n) new game\n(q) quit\n\n");

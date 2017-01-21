@@ -45,10 +45,10 @@ typedef struct	s_stack
 
 typedef struct	s_oper
 {
-	char			*oper;
-	int 			index;
-	int				command;
-	struct s_oper	*next;
+	char			*oper;		// последняя использованная команда
+	int				command;	// цифровое обозначение команды
+	int 			num;		// количество операций
+	struct s_oper	*next;		// следующий лист
 }				t_oper;
 
 typedef struct	s_history
@@ -100,7 +100,7 @@ void			rrr(t_stack *stks);
 ** push_swap
 */
 
-int				ft_find_the_way(t_oper **commands, t_stack *stks);
+int				ft_find_the_way(t_stack *stks);
 
 /*
 ** game mode

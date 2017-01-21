@@ -15,12 +15,11 @@
 t_oper				*ft_new_oper(char *str)
 {
 	t_oper			*new;
-	static int		index;
 
 	new = (t_oper*)malloc(sizeof(t_oper) * 1);
 	new->oper = str;
 	new->command = 0;
-	new->index = ++index;
+	new->num = 0;
 	new->next = NULL;
 	return (new);
 }

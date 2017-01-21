@@ -58,6 +58,7 @@ static void		ft_play_again(t_stack *stks, t_stack **stks_copy,
 
 static void		ft_first_launch(t_stack *stks, t_history **history)
 {
+	ft_printf("NEW GAME started\n");
 	ft_print_list_of_commands();
 	ft_print_stacks(stks);
 	*history = NULL;
