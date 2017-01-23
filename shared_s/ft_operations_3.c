@@ -23,6 +23,7 @@ void			rra(t_stack *stks)
 	int			size;
 
 	ft_strcpy(stks->last, "rra");
+	stks->opnum = 8;
 	if (stks->elems_a < 2)
 		return (ft_no_change(stks));
 	elems = stks->elems_a;
@@ -51,6 +52,7 @@ void			rrb(t_stack *stks)
 	int			size;
 
 	ft_strcpy(stks->last, "rrb");
+	stks->opnum = 9;
 	if (stks->elems_b < 2)
 		return (ft_no_change(stks));
 	elems = stks->elems_b;
@@ -75,6 +77,7 @@ void			rrb(t_stack *stks)
 void			rrr(t_stack *stks)
 {
 	ft_strcpy(stks->last, "rrr");
+	stks->opnum = 10;
 	if (stks->elems_a < 2 || stks->elems_b < 2)
 		return (ft_no_change(stks));
 	stks->buf_a = stks->flag;

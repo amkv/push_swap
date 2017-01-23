@@ -33,7 +33,7 @@
 //	else
 //	{
 //		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags);
-//		if (ft_find_the_way(&commands, *&stks) == -1)
+//		if (ft_push_swap(&commands, *&stks) == -1)
 //			ft_putstr_fd("Algorithm_Error\n", 2);
 //		else
 //			ft_print_commands(commands);
@@ -59,7 +59,7 @@ int				main(int argc, char **argv)
 	else
 	{
 		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags);
-		if (ft_find_the_way(*&stks) == -1)
+		if (ft_push_swap(*&stks) == -1)
 			ft_putstr_fd("Algorithm_Error\n", 2);
 		else
 			ft_print_commands(commands);

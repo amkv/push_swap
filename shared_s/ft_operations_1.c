@@ -22,6 +22,7 @@ void		sa(t_stack *stks)
 	int		top;
 
 	ft_strcpy(stks->last, "sa");
+	stks->opnum = 0;
 	if (stks->elems_a < 2)
 		return (ft_no_change(stks));
 	top = stks->top_a;
@@ -41,6 +42,7 @@ void		sb(t_stack *stks)
 	int		top;
 
 	ft_strcpy(stks->last, "sb");
+	stks->opnum = 1;
 	if (stks->elems_b < 2)
 		return (ft_no_change(stks));
 	top = stks->top_b;
@@ -57,6 +59,7 @@ void		sb(t_stack *stks)
 void		ss(t_stack *stks)
 {
 	ft_strcpy(stks->last, "ss");
+	stks->opnum = 2;
 	if (stks->elems_a < 2 || stks->elems_b < 2)
 		return (ft_no_change(stks));
 	stks->buf_a = stks->flag;
@@ -78,6 +81,7 @@ void		pa(t_stack *stks)
 	int		size;
 
 	ft_strcpy(stks->last, "pa");
+	stks->opnum = 3;
 	if (stks->elems_b == 0)
 		return (ft_no_change(stks));
 	size = stks->size - 1;
@@ -107,6 +111,7 @@ void		pb(t_stack *stks)
 	int		size;
 
 	ft_strcpy(stks->last, "pb");
+	stks->opnum = 4;
 	if (stks->elems_a == 0)
 		return (ft_no_change(stks));
 	size = (stks->size - 1);

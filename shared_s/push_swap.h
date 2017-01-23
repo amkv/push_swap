@@ -18,8 +18,8 @@
 # include "../libft/libft/libft.h"
 
 # pragma GCC diagnostic ignored "-Wunused-parameter"
-//# pragma GCC diagnostic ignored "-Wunused-function"
-//# pragma GCC diagnostic ignored "-Wunused-variable"
+# pragma GCC diagnostic ignored "-Wunused-function"
+# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
 
 typedef struct	s_stack
@@ -41,6 +41,7 @@ typedef struct	s_stack
 	int 		game;			// флаг для игрового режима
 	int 		clear;			// флаг для очистки терминала
 	char 		last[4];		// название последнего оператора
+	int 		opnum;			// цифровое обозначение последней операции (название оператора)
 }				t_stack;
 
 typedef struct	s_oper
@@ -100,7 +101,7 @@ void			rrr(t_stack *stks);
 ** push_swap
 */
 
-int				ft_find_the_way(t_stack *stks);
+int				ft_push_swap(t_stack *stks);
 
 /*
 ** game mode

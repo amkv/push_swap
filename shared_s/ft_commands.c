@@ -18,7 +18,7 @@ t_oper				*ft_new_oper(char *str)
 
 	new = (t_oper*)malloc(sizeof(t_oper) * 1);
 	new->oper = str;
-	new->command = 0;
+	new->command = -1;
 	new->num = 0;
 	new->next = NULL;
 	return (new);
