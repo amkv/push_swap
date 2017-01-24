@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 # define MAXINT 2147483647
 # define MININT -2147483648
-# define BUFF 4
 # include "../libft/libft/libft.h"
 
 # pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -42,6 +41,7 @@ typedef struct	s_stack
 	int 		clear;			// флаг для очистки терминала
 	char 		last[4];		// название последнего оператора
 	int 		opnum;			// цифровое обозначение последней операции (название оператора)
+//	void		*operators;		// поинтер на массив поинтеров на функции
 }				t_stack;
 
 typedef struct	s_oper
@@ -49,6 +49,7 @@ typedef struct	s_oper
 	char			*oper;		// последняя использованная команда
 	int				command;	// цифровое обозначение команды
 	int 			num;		// количество операций
+	struct s_oper	*holder;	// хранит адрес первого нода
 	struct s_oper	*next;		// следующий лист
 }				t_oper;
 
@@ -73,9 +74,6 @@ void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags);
 void			ft_print_stacks(t_stack *stks);
 void			ft_no_change(t_stack *stks);
 
-t_oper			*ft_new_oper(char *str);
-void			ft_add_oper(t_oper **commands, t_oper **new);
-void			ft_print_commands(t_oper *commands);
 void			ft_free_commands(t_oper **commands);
 
 int				ft_count_words(const char *str, char c);
@@ -94,18 +92,23 @@ void			rrb(t_stack *stks);
 void			rrr(t_stack *stks);
 
 /*
-** checker
-*/
-
-/*
 ** push_swap
 */
 
 int				ft_push_swap(t_stack *stks);
+//char			*ft_return_step_name(int oper);
+//t_oper		*ft_new_step(int oper, int num_oper);
+t_oper			*ft_add_step(t_oper *step, int oper);
+void			ft_free_steps(t_oper **list);
+void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
 
 /*
-** game mode
+** checker, game mode -g
 */
+
+t_oper			*ft_new_oper(char *str);
+void			ft_add_oper(t_oper **commands, t_oper **new);
+void			ft_print_commands(t_oper *commands);
 
 void			ft_game_mode(t_stack *stks);
 int				ft_game_act(char *argument, t_stack *stks, t_history *history);

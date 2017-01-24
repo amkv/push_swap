@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 13:38:35 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/22 14:37:26 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/01/23 13:15:38 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SLIB = slib.a
 LIBFT_F = ../libft/
 LIBFT = libft.a
 OUT = ../
-CFILES = main.c ft_algorithm_1.c
+CFILES = main.c ft_algorithm_1.c ft_algorithm_2.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)

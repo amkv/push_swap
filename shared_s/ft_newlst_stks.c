@@ -12,6 +12,26 @@
 
 #include "../shared_s/push_swap.h"
 
+//static void		ft_set_pointers(void *operators)
+//{
+//	void		(**oper)(t_stack*);
+//
+//	oper = (void*)malloc(sizeof(oper) * 11);
+//
+//	oper[0] = &sa;
+//	oper[1] = &sb;
+//	oper[2] = &ss;
+//	oper[3] = &pa;
+//	oper[4] = &pb;
+//	oper[5] = &ra;
+//	oper[6] = &rb;
+//	oper[7] = &rr;
+//	oper[8] = &rra;
+//	oper[9] = &rrb;
+//	oper[10] = &rrr;
+//	operators = &oper;
+//}
+
 t_stack			*ft_new_stks(int *stack_a, int size, int *flag)
 {
 	t_stack		*stks;
@@ -37,5 +57,6 @@ t_stack			*ft_new_stks(int *stack_a, int size, int *flag)
 	stks->opnum = -1;
 	if (!flag[1])
 		ft_print_stacks(stks);
+//	ft_set_pointers(stks->operators);
 	return (stks);
 }

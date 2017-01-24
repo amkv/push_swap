@@ -21,6 +21,7 @@ t_oper				*ft_new_oper(char *str)
 	new->command = -1;
 	new->num = 0;
 	new->next = NULL;
+	new->holder = NULL;
 	return (new);
 }
 
