@@ -7,6 +7,9 @@ set(SOURCE_FILES
 		main.c
 		ft_algorithm_1.c
 		ft_algorithm_2.c
+		ft_algorithm_3.c
+		ft_algorithm_4.c
+		ft_algorithm_5.c
 		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_newlst_stks.c
 		)
 

@@ -12,48 +12,28 @@
 
 #include "../shared_s/push_swap.h"
 
-static int			ft_to_be_on_top(t_stack *fake, int index)
-{
-	int		num_to_top;
-	int		num_to_down;
-
-	num_to_top = fake->top_a - index + 1;	// wrong
-	num_to_down = fake->size - index;		// wrong
-	if (num_to_top == 1)
-		;
-	return (0);
-}
-
-static t_stack		*ft_set_the_fake_values(t_stack *stks, int index)
-{
-	t_stack			*fake;
-
-	if (!(fake = (t_stack*)malloc(sizeof(t_stack) * 1)))
-		return (NULL);
-	fake->size = stks->size;
-	fake->stk_a = stks->stk_a;
-	fake->stk_b = stks->stk_b;
-	fake->top_a = index;
-	fake->top_b = stks->top_b;
-	fake->elems_a = stks->elems_a;
-	fake->elems_b = stks->elems_b;
-	return (fake);
-}
-
 static t_oper		*ft_check_steps(t_stack *stks, int index)
 {
+	t_oper			*up_a;
+	t_oper			*up_b;
+	t_oper			*down_a;
+	t_oper			*down_b;
 	t_oper			*steps;
-	t_stack			*fake;
-	int				number;
 
 	steps = NULL;
 	if (index == 0 || index == 1)
-		return (ft_add_step(NULL, 4));
-	if (!(fake = ft_set_the_fake_values(stks, index)))
-		return (NULL);
-	number = ft_to_be_on_top(fake, index); // parser start
-	free(fake);
-	steps = ft_add_step(NULL, 5);
+		return (ft_add_step(steps, 4));
+	up_a = ft_up_a(stks, index);
+	down_a = ft_down_a(stks, index);
+	up_b = ft_up_b(stks, index);
+//	down_b = ft_down_b(stks, index);
+//	steps = ft_merge_steps(up_a, down_a, up_b, down_b); // merge and free
+	steps = up_a;
+
+	if (!steps)
+		steps = ft_add_step(steps, 5);
+
+//	steps = ft_add_step(NULL, 5);
 	return (steps);
 }
 

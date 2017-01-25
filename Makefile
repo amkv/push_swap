@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 14:54:07 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/10 18:01:53 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/01/24 12:47:36 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,23 +43,23 @@ $(NAME2):
 	fi
 
 clean:
-	@echo "$(LIBFT_F) folder:"
+	@echo "$(LIBFT_F) folder:\c"
 	@make clean -C $(LIBFT_F)
-	@echo "$(SHARED_F) folder:"
+	@echo "$(SHARED_F) folder:\c"
 	@make clean -C $(SHARED_F)
-	@echo "$(PUSH_SWAP_F) folder:"
+	@echo "$(PUSH_SWAP_F) folder:\c"
 	@make clean -C $(PUSH_SWAP_F)
-	@echo "$(CHECKER_F) folder:"
+	@echo "$(CHECKER_F) folder:\c"
 	@make clean -C $(CHECKER_F)
 
 fclean: clean
-	@echo "$(LIBFT_F) folder:"
+	@#echo "$(LIBFT_F) folder:\c"
 	@make fclean -C $(LIBFT_F)
-	@echo "$(SHARED_F) folder:"
+	@#echo "$(SHARED_F) folder:\c"
 	@make fclean -C $(SHARED_F)
-	@echo "$(PUSH_SWAP_F) folder:"
+	@#echo "$(PUSH_SWAP_F) folder:\c"
 	@make fclean -C $(PUSH_SWAP_F)
-	@echo "$(CHECKER_F) folder:"
+	@#echo "$(CHECKER_F) folder:\c"
 	@make fclean -C $(CHECKER_F)
 	@$(RMS) $(PUSH_SWAP) $(CHECKER)
 

@@ -96,10 +96,16 @@ void			rrr(t_stack *stks);
 */
 
 int				ft_push_swap(t_stack *stks);
-//char			*ft_return_step_name(int oper);
-//t_oper		*ft_new_step(int oper, int num_oper);
 t_oper			*ft_add_step(t_oper *step, int oper);
 void			ft_free_steps(t_oper **list);
+
+t_oper			*ft_up_a(t_stack *stks, int index);
+t_oper			*ft_down_a(t_stack *stks, int index);
+t_oper			*ft_up_b(t_stack *s, int i);
+
+//t_oper			*ft_to_be_on_the_top(t_stack *s, char ab, int index);
+//t_oper			*ft_insert_in_b(t_stack *fake, t_oper *steps, int index);
+
 void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
 
 /*
