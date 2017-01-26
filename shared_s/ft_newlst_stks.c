@@ -12,51 +12,55 @@
 
 #include "../shared_s/push_swap.h"
 
-//static void		ft_set_pointers(void *operators)
-//{
-//	void		(**oper)(t_stack*);
-//
-//	oper = (void*)malloc(sizeof(oper) * 11);
-//
-//	oper[0] = &sa;
-//	oper[1] = &sb;
-//	oper[2] = &ss;
-//	oper[3] = &pa;
-//	oper[4] = &pb;
-//	oper[5] = &ra;
-//	oper[6] = &rb;
-//	oper[7] = &rr;
-//	oper[8] = &rra;
-//	oper[9] = &rrb;
-//	oper[10] = &rrr;
-//	operators = &oper;
-//}
+static void		ft_set_a(t_stack *stks, int *stack_a, int size)
+{
+	stks->stk_a = stack_a;
+	stks->top_a = 0;
+	stks->elems_a = size;
+}
+
+static void		ft_set_b(t_stack *stks, int size)
+{
+	stks->stk_b = (int*)malloc(sizeof(int) * size);
+	stks->top_b = size - 1;
+	stks->elems_b = 0;
+	stks->b_max = 0;
+	stks->b_min = 0;
+	stks->b_mxi = 0;
+	stks->b_mni = 0;
+}
+
+static void		ft_set_helpers(t_stack *stks, int *flag, int size)
+{
+	stks->size = size;
+	stks->buf_a = 0;
+	stks->buf_b = 0;
+	stks->flag = flag[0];
+	stks->game = flag[1];
+	stks->step = 0;
+	stks->operations = 0;
+	stks->clear = 0;
+	stks->print_flag_a = 0;
+	stks->print_flag_b = 0;
+	ft_bzero(stks->last, 4);
+	stks->opnum = -1;
+}
 
 t_stack			*ft_new_stks(int *stack_a, int size, int *flag)
 {
 	t_stack		*stks;
 
-	stks = (t_stack*)malloc(sizeof(t_stack) * 1);
-	stks->stk_a = stack_a;
-	stks->top_a = 0;
-	stks->elems_a = size;
-	stks->buf_a = 0;
-	stks->stk_b = (int*)malloc(sizeof(int) * size);
-	stks->top_b = size - 1;
-	stks->elems_b = 0;
-	stks->buf_b = 0;
-	stks->flag = flag[0];
-	stks->game = flag[1];
-	stks->clear = 0;
-	stks->size = size;
-	stks->step = 0;
-	stks->operations = 0;
-	stks->print_flag_a = 0;
-	stks->print_flag_b = 0;
-	ft_bzero(stks->last, 4);
-	stks->opnum = -1;
+	if (!(stks = (t_stack*)malloc(sizeof(t_stack) * 1)))
+		return (NULL);
+	ft_set_a(stks, stack_a, size);
+	ft_set_b(stks, size);
+	if (!stks->stk_b)
+	{
+		free(stks);
+		return (NULL);
+	}
+	ft_set_helpers(stks, flag, size);
 	if (!flag[1])
 		ft_print_stacks(stks);
-//	ft_set_pointers(stks->operators);
 	return (stks);
 }

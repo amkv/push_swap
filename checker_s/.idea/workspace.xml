@@ -38,8 +38,8 @@
           <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+                <state relative-caret-position="216">
+                  <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
                   <folding />
                 </state>
               </provider>
@@ -48,8 +48,8 @@
           <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+                <state relative-caret-position="622">
+                  <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -99,11 +99,21 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ft_helpers_1.c" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../shared_s/ft_helpers_1.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="866">
+                  <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="push_swap.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../shared_s/push_swap.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="810">
-                  <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+                  <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -112,14 +122,14 @@
           <file leaf-file-name="ft_print_stacks.c" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../shared_s/ft_print_stacks.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="74">
+                <state relative-caret-position="900">
                   <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ft_newlst_stks.c" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ft_newlst_stks.c" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../shared_s/ft_newlst_stks.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="450">
@@ -146,8 +156,6 @@
         <option value="$PROJECT_DIR$/../shared_s/ft_validator.c" />
         <option value="$PROJECT_DIR$/../shared_s/ft_helpers_1.c" />
         <option value="$PROJECT_DIR$/../shared_s/ft_commands.c" />
-        <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/../shared_s/ft_print_stacks.c" />
         <option value="$PROJECT_DIR$/ft_game_2.c" />
         <option value="$PROJECT_DIR$/ft_game_1.c" />
@@ -157,6 +165,8 @@
         <option value="$PROJECT_DIR$/../shared_s/ft_operations_1.c" />
         <option value="$PROJECT_DIR$/../shared_s/ft_operations_2.c" />
         <option value="$PROJECT_DIR$/../shared_s/ft_operations_3.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
   </component>
@@ -237,7 +247,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
   </component>
-  <component name="RunManager" selected="Application.-g 1 2">
+  <component name="RunManager" selected="Application.5 8 3 2 1">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="checker" TARGET_NAME="checker" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -495,6 +505,10 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="5 8 3 2 1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="5 8 3 2 1" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="checker" TARGET_NAME="checker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="checker" RUN_TARGET_NAME="checker">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="-g" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-g" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="checker" TARGET_NAME="checker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="checker" RUN_TARGET_NAME="checker">
       <envs />
       <method />
@@ -567,7 +581,7 @@
       <envs />
       <method />
     </configuration>
-    <list size="42">
+    <list size="43">
       <item index="0" class="java.lang.String" itemvalue="Application.no arg" />
       <item index="1" class="java.lang.String" itemvalue="Application.42" />
       <item index="2" class="java.lang.String" itemvalue="Application.A" />
@@ -592,24 +606,25 @@
       <item index="21" class="java.lang.String" itemvalue="Application.-v 1 2" />
       <item index="22" class="java.lang.String" itemvalue="Application.-v 2 1" />
       <item index="23" class="java.lang.String" itemvalue="Application.-v 5 8 3 2 1" />
-      <item index="24" class="java.lang.String" itemvalue="Application.-g" />
-      <item index="25" class="java.lang.String" itemvalue="Application.-g 42" />
-      <item index="26" class="java.lang.String" itemvalue="Application.-g 9 3 5 2 1 7 6 4 0" />
-      <item index="27" class="java.lang.String" itemvalue="Application.-g 1 2" />
-      <item index="28" class="java.lang.String" itemvalue="Application.-g 2 1" />
-      <item index="29" class="java.lang.String" itemvalue="Application.-g -v" />
-      <item index="30" class="java.lang.String" itemvalue="Application.-v -g" />
-      <item index="31" class="java.lang.String" itemvalue="Application.-v -v" />
-      <item index="32" class="java.lang.String" itemvalue="Application.-g -g" />
-      <item index="33" class="java.lang.String" itemvalue="Application.-g -g 2 4 3" />
-      <item index="34" class="java.lang.String" itemvalue="Application.-v -v 2 4 3" />
-      <item index="35" class="java.lang.String" itemvalue="Application.-v -g 1" />
-      <item index="36" class="java.lang.String" itemvalue="Application.-g -v 1" />
-      <item index="37" class="java.lang.String" itemvalue="Application.-v -g 1 2" />
-      <item index="38" class="java.lang.String" itemvalue="Application.-v -g 2 1" />
-      <item index="39" class="java.lang.String" itemvalue="Application.-g -v 42 65 1" />
-      <item index="40" class="java.lang.String" itemvalue="Application.-v -g 42 65 1" />
-      <item index="41" class="java.lang.String" itemvalue="Application.-g 1 4 3 2 6 7 9 0 5 8" />
+      <item index="24" class="java.lang.String" itemvalue="Application.5 8 3 2 1" />
+      <item index="25" class="java.lang.String" itemvalue="Application.-g" />
+      <item index="26" class="java.lang.String" itemvalue="Application.-g 42" />
+      <item index="27" class="java.lang.String" itemvalue="Application.-g 9 3 5 2 1 7 6 4 0" />
+      <item index="28" class="java.lang.String" itemvalue="Application.-g 1 2" />
+      <item index="29" class="java.lang.String" itemvalue="Application.-g 2 1" />
+      <item index="30" class="java.lang.String" itemvalue="Application.-g -v" />
+      <item index="31" class="java.lang.String" itemvalue="Application.-v -g" />
+      <item index="32" class="java.lang.String" itemvalue="Application.-v -v" />
+      <item index="33" class="java.lang.String" itemvalue="Application.-g -g" />
+      <item index="34" class="java.lang.String" itemvalue="Application.-g -g 2 4 3" />
+      <item index="35" class="java.lang.String" itemvalue="Application.-v -v 2 4 3" />
+      <item index="36" class="java.lang.String" itemvalue="Application.-v -g 1" />
+      <item index="37" class="java.lang.String" itemvalue="Application.-g -v 1" />
+      <item index="38" class="java.lang.String" itemvalue="Application.-v -g 1 2" />
+      <item index="39" class="java.lang.String" itemvalue="Application.-v -g 2 1" />
+      <item index="40" class="java.lang.String" itemvalue="Application.-g -v 42 65 1" />
+      <item index="41" class="java.lang.String" itemvalue="Application.-v -g 42 65 1" />
+      <item index="42" class="java.lang.String" itemvalue="Application.-g 1 4 3 2 6 7 9 0 5 8" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -649,11 +664,12 @@
       <workItem from="1484957250466" duration="267000" />
       <workItem from="1484963863946" duration="385000" />
       <workItem from="1485112200412" duration="374000" />
+      <workItem from="1485385277691" duration="324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100710000" />
+    <option name="totallyTimeSpent" value="101034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -661,22 +677,22 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19417094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5275298" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2983631" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26190478" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38169643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28869048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5275298" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5342262" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -755,19 +771,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.c</url>
-          <line>18</line>
-          <option name="timeStamp" value="78" />
+          <line>103</line>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.c</url>
-          <line>74</line>
-          <option name="timeStamp" value="79" />
+          <url>file://$PROJECT_DIR$/../shared_s/ft_helpers_1.c</url>
+          <line>51</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="80" />
+      <option name="time" value="82" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -979,14 +995,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ft_reader.c" />
-    <entry file="file://$PROJECT_DIR$/../shared_s/ft_helpers_1.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../shared_s/ft_validator.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -998,14 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,17 +1041,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../shared_s/push_swap.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../shared_s/ft_print_stacks.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
+        <state relative-caret-position="900">
           <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
           <folding />
         </state>
@@ -1061,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1089,10 +1078,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../shared_s/push_swap.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../shared_s/ft_helpers_1.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="866">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        <state relative-caret-position="622">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
           <folding />
         </state>
       </provider>

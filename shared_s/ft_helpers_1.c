@@ -57,7 +57,8 @@ void		ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags)
 		free(stks->stk_b);
 		free(stks);
 	}
-	ft_free_commands(*&commands);
+	if (commands)
+		ft_free_commands(*&commands);
 	free(flags);
 }
 

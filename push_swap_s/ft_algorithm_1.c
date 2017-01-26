@@ -12,6 +12,72 @@
 
 #include "../shared_s/push_swap.h"
 
+//static t_oper		*ft_check_steps(t_stack *stks, int index)
+//{
+//	t_oper			*up_a;
+//	t_oper			*up_b;
+//	t_oper			*down_a;
+//	t_oper			*down_b;
+//	t_oper			*steps;
+//
+//	steps = NULL;
+//	if (index == 0 || index == 1 )
+//		return (ft_add_step(steps, 4));
+//	if ((up_a = ft_up_a(stks, index)))
+//		ft_printf("up_a: %d\n", up_a->holder->num);
+//	else
+//		ft_printf("up_a: 0\n");
+//	if ((down_a = ft_down_a(stks, index)))
+//		ft_printf("down_a: %d\n", down_a->holder->num);
+//	else
+//		ft_printf("down_a: 0\n");
+//	if ((up_b = ft_up_b(stks, index)))
+//		ft_printf("up_b: %d\n", up_b->holder->num);
+//	else
+//		ft_printf("up_b: 0\n");
+//	if ((down_b = ft_down_b(stks, index)))
+//		ft_printf("down_b: %d\n\n", down_b->holder->num);
+//	else
+//		ft_printf("down_b: 0\n\n");
+//	steps = ft_merge_steps(up_a, down_a, up_b, down_b); // merge and free
+//	if (!steps)
+//		steps = ft_add_step(steps, 5);
+//	return (steps);
+//}
+
+//static int 			ft_test_function(t_stack *stks)
+//{
+//	t_oper			*steps;
+//	int 			i;
+//	int 			index;
+//
+//	index = 8;
+//	steps = NULL;
+//	pb(stks);
+//	pb(stks);
+//	sb(stks);
+//	pb(stks);
+//	rrb(stks);
+//	pb(stks);
+//
+//	stks->flag = 1;
+//	ft_print_stacks(stks);
+//	stks->flag = 0;
+//	ft_printf("num a: %d\n", stks->stk_a[index]);
+//	ft_printf("index: %d\n\n",  index);
+//	steps = ft_check_steps(stks, index);
+//	ft_printf("\nmax: %d\n", stks->b_max);
+//	ft_printf("mx_i: %d\n", stks->b_mxi);
+//	ft_printf("min: %d\n", stks->b_min);
+//	ft_printf("mn_i: %d\n", stks->b_mni);
+//	ft_printf("num of operations: %d\n\n", steps->holder->num);
+//	ft_use_print_and_free(stks, &steps);
+//	stks->flag = 1;
+//	ft_print_stacks(stks);
+//	stks->flag = 0;
+//	return (0);
+//}
+
 static t_oper		*ft_check_steps(t_stack *stks, int index)
 {
 	t_oper			*up_a;
@@ -21,19 +87,14 @@ static t_oper		*ft_check_steps(t_stack *stks, int index)
 	t_oper			*steps;
 
 	steps = NULL;
-	if (index == 0 || index == 1)
+	if (index == 0 || index == 1 )
 		return (ft_add_step(steps, 4));
 	up_a = ft_up_a(stks, index);
 	down_a = ft_down_a(stks, index);
 	up_b = ft_up_b(stks, index);
-//	down_b = ft_down_b(stks, index);
-//	steps = ft_merge_steps(up_a, down_a, up_b, down_b); // merge and free
-	steps = up_a;
-
-	if (!steps)
-		steps = ft_add_step(steps, 5);
-
-//	steps = ft_add_step(NULL, 5);
+	down_b = ft_down_b(stks, index);
+	steps = ft_merge_steps(up_a, down_a, up_b, down_b); // merge and free
+	steps = ft_add_step(steps, 4);
 	return (steps);
 }
 
@@ -45,6 +106,7 @@ static int			ft_main_algorithm(t_stack *stks)
 	int				num_oper;
 	int				winner;
 
+//	return (ft_test_function(stks));
 	external = 0;
 	while (external < stks->size)
 	{
@@ -75,10 +137,6 @@ static int			ft_main_algorithm(t_stack *stks)
 		ft_use_print_and_free(stks, &answers[winner]);
 		external++;
 	}
-//	if (ft_is_stack_in_order(stks) == 1) // не надо проверять, только для теста
-//		ft_printf("отработало нормально\n");
-//	else
-//		ft_printf("накосячило нехило\n");
 	return (1);
 }
 
@@ -99,7 +157,7 @@ int					ft_push_swap(t_stack *stks)
 		if (ft_main_algorithm(*&stks) == -1)
 			return (-1);
 		index = 0;
-		while (index < stks->elems_b + 1)
+		while (index < stks->size)
 		{
 			pa(stks);
 			if (stks->flag != 1)

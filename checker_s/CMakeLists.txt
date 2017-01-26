@@ -10,6 +10,7 @@ set(SOURCE_FILES
 		ft_game_3.c
 		ft_game_4.c
 		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_print_stacks.c
+		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_helpers_1.c
 		)
 
 

@@ -41,7 +41,10 @@ typedef struct	s_stack
 	int 		clear;			// флаг для очистки терминала
 	char 		last[4];		// название последнего оператора
 	int 		opnum;			// цифровое обозначение последней операции (название оператора)
-//	void		*operators;		// поинтер на массив поинтеров на функции
+	int 		b_max;			// максимальное число в стеке b
+	int 		b_mxi;			// индекс максимального числа в стеке b
+	int 		b_min;			// минимальное число в стеке a
+	int 		b_mni;			// индекс минимального числа в стеке b
 }				t_stack;
 
 typedef struct	s_oper
@@ -70,15 +73,11 @@ t_stack			*ft_new_stks(int *stack_a, int size, int *flag);
 int				ft_isinorder(int *tab, int size);
 int				ft_is_stack_in_order(t_stack *stks);
 void			ft_free_all(int *tab, t_stack *stks, t_oper **commands, int *flags);
-
 void			ft_print_stacks(t_stack *stks);
 void			ft_no_change(t_stack *stks);
-
 void			ft_free_commands(t_oper **commands);
-
 int				ft_count_words(const char *str, char c);
 int				ft_free_2d_array(char **array, int size);
-
 void			sa(t_stack *stks);
 void			sb(t_stack *stks);
 void			ss(t_stack *stks);
@@ -102,9 +101,8 @@ void			ft_free_steps(t_oper **list);
 t_oper			*ft_up_a(t_stack *stks, int index);
 t_oper			*ft_down_a(t_stack *stks, int index);
 t_oper			*ft_up_b(t_stack *s, int i);
-
-//t_oper			*ft_to_be_on_the_top(t_stack *s, char ab, int index);
-//t_oper			*ft_insert_in_b(t_stack *fake, t_oper *steps, int index);
+t_oper			*ft_down_b(t_stack *s, int index);
+t_oper 			*ft_merge_steps(t_oper *ua, t_oper *da, t_oper *ub, t_oper *db);
 
 void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
 

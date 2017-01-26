@@ -116,8 +116,9 @@ int				main(int argc, char **argv)
 		ft_putstr_fd("Checker_validator_Error\n", 2);
 	else
 	{
-		stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags);
-		if (stks->game == 1 && (stks->flag = 1))
+		if (!(stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags)))
+			ft_putstr_fd("Error\n", 2);
+		else if (stks->game == 1 && (stks->flag = 1))
 			ft_game_mode(stks);
 		else if (ft_read_arguments(&commands) == -1)
 			ft_putstr_fd("Checker_read_Error\n", 2);

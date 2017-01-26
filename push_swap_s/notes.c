@@ -315,27 +315,19 @@ t_oper				*ft_to_be_on_the_top(t_stack *s, char ab, int index)
  * в данный момент времени в данной конфигурации
  */
 
-static void		ft_return_min_max(int *min, int *max, t_stack *stks)
-{
-	int 		i;
-	int 		t_min;
-	int 		t_max;
-
-	i = stks->top_b;
-	t_min = stks->stk_b[i];
-	t_max = stks->stk_b[i];
-	while (i < stks->size)
-	{
-		if (stks->stk_b[i] < t_min)
-		{
-			t_min = stks->stk_b[i];
-			*min = i;
-		}
-		if (stks->stk_b[i] > t_max)
-		{
-			t_max = stks->stk_b[i];
-			*max = i;
-		}
-		i++;
-	}
-}
+/*
+ * Проверки в функции ft_up_b
+ *
+ * проверяю первое и последнее число в стеке
+ * МОЖНО ЛИ ПОСТАВИТЬ НА ВЕРШИНУ? ТЕ МЕЖДУ ПОСЛЕДНИМ И ПЕРВЫМ
+ * те top_b и stks->size - 1;
+ *
+ * затем, если первая проверка false
+ * МОЖНО ЛИ ВСТАВИТЬ МЕЖДУ ПЕРВЫМ И ВТОРЫМ
+ * top_b и top_b + 1
+ *
+ * ПРОХОЖУ ПО ВСЕМУ СТЕКУ
+ * пока top_b не дойдет до конца
+ *
+ *
+ */

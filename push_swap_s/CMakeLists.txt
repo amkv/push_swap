@@ -10,7 +10,9 @@ set(SOURCE_FILES
 		ft_algorithm_3.c
 		ft_algorithm_4.c
 		ft_algorithm_5.c
+		ft_algorithm_6.c
 		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_newlst_stks.c
+		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_helpers_1.c
 		)
 
 

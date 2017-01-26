@@ -6,11 +6,11 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/09 14:54:07 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/24 12:47:36 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/01/25 15:25:06 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re push_swap checker
+.PHONY: all clean fclean re push_swap checker reclean
 
 NAME1 = checker
 NAME2 = push_swap
@@ -65,3 +65,5 @@ fclean: clean
 
 re: fclean all
 
+reclean: re
+	@make clean
