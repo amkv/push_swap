@@ -16,36 +16,21 @@
  * To be on the top
  */
 
-t_oper		*ft_up_a(t_stack *stks, int index)
+int				ft_up_a(t_stack *stks, int index)
 {
 	int 		num;
-	t_oper		*steps;
 
-	steps = NULL;
 	if (index == stks->top_a)
-		return (NULL);
+		return (0);
+//	else if (index == stks->size - 1)
+//		return (0);
 	num = stks->top_a - index;
 	if (num < 0)
 		num = -1 * num;
-	while (num)
-	{
-		steps = ft_add_step(steps, 5);
-		num--;
-	}
-	return (steps);
+	return (num);
 }
 
-t_oper		*ft_down_a(t_stack *stks, int index)
+int				ft_down_a(t_stack *stks, int index)
 {
-	int 		num;
-	t_oper		*steps;
-
-	steps = NULL;
-	num = stks->size - index;
-	while (num)
-	{
-		steps = ft_add_step(steps, 8);
-		num--;
-	}
-	return (steps);
+	return (stks->size - index);
 }

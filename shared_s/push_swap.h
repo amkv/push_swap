@@ -98,11 +98,16 @@ int				ft_push_swap(t_stack *stks);
 t_oper			*ft_add_step(t_oper *step, int oper);
 void			ft_free_steps(t_oper **list);
 
-t_oper			*ft_up_a(t_stack *stks, int index);
-t_oper			*ft_down_a(t_stack *stks, int index);
-t_oper			*ft_up_b(t_stack *s, int i);
-t_oper			*ft_down_b(t_stack *s, int index);
-t_oper 			*ft_merge_steps(t_oper *ua, t_oper *da, t_oper *ub, t_oper *db);
+//t_oper			*ft_up_a(t_stack *stks, int index);
+//t_oper			*ft_down_a(t_stack *stks, int index);
+//t_oper			*ft_up_b(t_stack *s, int i);
+//t_oper			*ft_down_b(t_stack *s, int index);
+
+int				ft_up_a(t_stack *stks, int index);
+int				ft_down_a(t_stack *stks, int index);
+int				ft_up_b(t_stack *s, int i);
+int				ft_down_b(t_stack *s, int index);
+t_oper 			*ft_merge_steps(int *ua, int *da, int *ub, int *db);
 
 void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
 

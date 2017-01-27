@@ -18,6 +18,8 @@ void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
 	t_oper		*holder;
 	void		(*oper[11])(t_stack*);
 
+	if (!(*answers))
+		return ;
 	oper[0] = &sa;
 	oper[1] = &sb;
 	oper[2] = &ss;
