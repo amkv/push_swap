@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 project(push_swap)
 
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -Wall -Wextra -Werror")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -Wall -Wextra -Werror")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
 
 set(SOURCE_FILES
 		main.c
@@ -12,6 +12,7 @@ set(SOURCE_FILES
 		ft_algorithm_4.c
 		ft_algorithm_5.c
 		ft_algorithm_6.c
+		/nfs/2016/a/akalmyko/Documents/work/push_swap/shared_s/ft_operations_2.c
 		)
 
 

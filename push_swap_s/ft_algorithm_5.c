@@ -16,7 +16,7 @@
  * down B (insert in b)
  */
 
-static int		ft_down_b_helper(t_stack *stks, int index)
+int		ft_down_b_helper(t_stack *stks, int index)
 {
 	return (stks->size - index);
 }
@@ -32,7 +32,7 @@ static void		ft_check_after_max_b(t_stack *s, int *win, int *elem, int index)
 		if (s->stk_a[index] > s->stk_b[b_max_index])
 		{
 			*win = b_max_index;
-			(*elem)++;
+			(*elem) = s->elems_b;
 			break ;
 		}
 		b_max_index++;

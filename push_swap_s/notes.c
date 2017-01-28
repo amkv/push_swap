@@ -331,3 +331,14 @@ t_oper				*ft_to_be_on_the_top(t_stack *s, char ab, int index)
  *
  *
  */
+
+/*
+ * pb
+ * pb
+ * rb
+ * pb
+ * rb
+ * pa
+ * pa
+ * pa
+ */

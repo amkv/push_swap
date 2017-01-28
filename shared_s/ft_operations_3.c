@@ -76,15 +76,17 @@ void			rrb(t_stack *stks)
 
 void			rrr(t_stack *stks)
 {
+	int 		buffer;
+
 	ft_strcpy(stks->last, "rrr");
 	stks->opnum = 10;
 	if (stks->elems_a < 2 || stks->elems_b < 2)
 		return (ft_no_change(stks));
-	stks->buf_a = stks->flag;
+	buffer = stks->flag;
 	stks->flag = 0;
 	rra(stks);
 	rrb(stks);
-	stks->flag = stks->buf_a;
+	stks->flag = buffer;
 	ft_strcpy(stks->last, "rrr");
 	ft_print_stacks(stks);
 }

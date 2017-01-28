@@ -34,7 +34,7 @@ void			ra(t_stack *stks)
 		if ((top + 1) == stks->size - 1)
 		{
 			stks->stk_a[top] = stks->stk_a[top + 1];
-			top++;
+			break ;
 		}
 		stks->stk_a[top] = stks->stk_a[top + 1];
 		top++;
@@ -80,15 +80,17 @@ void			rb(t_stack *stks)
 
 void			rr(t_stack *stks)
 {
+	int 		buffer;
+
 	ft_strcpy(stks->last, "rr");
 	stks->opnum = 7;
 	if (stks->elems_a < 2 || stks->elems_b < 2)
 		return (ft_no_change(stks));
-	stks->buf_a = stks->flag;
+	buffer = stks->flag;
 	stks->flag = 0;
 	ra(stks);
 	rb(stks);
-	stks->flag = stks->buf_a;
+	stks->flag = buffer;
 	ft_strcpy(stks->last, "rr");
 	ft_print_stacks(stks);
 }

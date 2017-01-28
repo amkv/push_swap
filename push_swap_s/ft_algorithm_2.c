@@ -18,8 +18,6 @@ void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
 	t_oper		*holder;
 	void		(*oper[11])(t_stack*);
 
-	if (!(*answers))
-		return ;
 	oper[0] = &sa;
 	oper[1] = &sb;
 	oper[2] = &ss;
@@ -35,8 +33,12 @@ void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
 	while (copy)
 	{
 		holder = copy->next;
+//		if (copy->command == 7)
+//			ft_printf("     RR double rotation\n");
+//		if (copy->command == 10)
+//			ft_printf("     RRR double rotation\n");
 		oper[copy->command](stks);
-		if (stks->flag != 1)
+		if (stks->flag == 0)
 			ft_printf("%s\n", copy->oper);
 		free(copy->oper);
 		free(copy);
