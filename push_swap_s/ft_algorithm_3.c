@@ -30,7 +30,7 @@ int				ft_up_a(t_stack *stks, int index)
 
 int				ft_down_a(t_stack *stks, int index)
 {
-	if (index == stks->size - 1)
+	if (index == stks->size - 1 && stks->elems_a == 1)
 		return (0);
 	return (stks->size - index);
 }

@@ -12,13 +12,6 @@
 
 #include "../shared_s/push_swap.h"
 
-/*
-	int 		ua_ub; candidate[0]
-	int 		ua_db; candidate[1]
-	int 		da_db; candidate[2]
-	int 		da_ub; candidate[3]
-*/
-
 static t_oper	*ft_ua_ub(int ua, int ub)
 {
 	t_oper		*steps;
@@ -111,9 +104,9 @@ static t_oper	*ft_da_ub(int da, int ub)
 	while (num)
 	{
 		if (da > 0)
-			steps = ft_add_step(steps, 5);
+			steps = ft_add_step(steps, 8);
 		if (ub > 0)
-			steps = ft_add_step(steps, 9);
+			steps = ft_add_step(steps, 6);
 		da--;
 		ub--;
 		num--;
@@ -123,28 +116,28 @@ static t_oper	*ft_da_ub(int da, int ub)
 
 static int		ft_candidates(int ua, int da, int ub, int db)
 {
-	int 		candidate[4];
+	int 		candidate[5];
 	int 		index;
 	int 		winner;
-	int 		min;
 
-	if (ua > ub)
-		candidate[0] = ua;
-	else
-		candidate[0] = ub;
-	if (da > db)
-		candidate[1] = da;
-	else
-		candidate[1] = db;
+	candidate[0] = ua - ub;
+	if (candidate[0] < 0)
+		candidate[0] = -candidate[0];
+	candidate[1] = da - db;
+	if (candidate[1] < 0)
+		candidate[1] = -candidate[1];
 	candidate[2] = ua + db;
 	candidate[3] = da + ub;
-	min = candidate[0];
+	candidate[4] = candidate[0];
 	index = 0;
 	winner = 0;
 	while (index < 4)
 	{
-		if (min > candidate[index])
+		if (candidate[index] < candidate[4])
+		{
+			candidate[4] = candidate[index];
 			winner = index;
+		}
 		index++;
 	}
 	return (winner);

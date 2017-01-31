@@ -118,8 +118,6 @@ static void 		ft_make_b_nice(t_stack *stks)
 	}
 }
 
-
-
 static t_oper		*ft_check_steps(t_stack *stks, int index)
 {
 	int				up_a;
@@ -140,8 +138,9 @@ static t_oper		*ft_check_steps(t_stack *stks, int index)
 	up_b = ft_up_b(stks, index);
 	down_b = ft_down_b(stks, index);
 	steps = ft_merge_steps(up_a, down_a, up_b, down_b);
-	int winner;
-	winner = steps->holder->num;
+//	int winner;
+//	winner = steps->holder->num;
+//	ft_printf("winner %d\n", winner);
 	return (steps);
 }
 
@@ -157,13 +156,13 @@ static t_oper		*ft_internal_loop(t_stack *s, int in, int ex, int num_oper)
 			break ;
 		if (in == ex)
 		{
-			num_oper = candidate->num;
+			num_oper = candidate->holder->num;
 			answer = candidate;
 		}
-		else if (candidate->num < num_oper)
+		else if (candidate->holder->num <= num_oper)
 		{
 			ft_free_steps(&answer);
-			num_oper = candidate->num;
+			num_oper = candidate->holder->num;
 			answer = candidate;
 		}
 		else
@@ -178,9 +177,11 @@ static int			ft_main_algorithm(t_stack *stks)
 	int				index;
 	t_oper			*steps;
 	t_oper			*alt;
+	int 			total;
 
 //	return (ft_test_function(stks));
 	index = 0;
+	total = 0;
 	while (index < stks->size)
 	{
 		steps = NULL;
@@ -190,29 +191,33 @@ static int			ft_main_algorithm(t_stack *stks)
 		{
 			alt = ft_check_push_to_top_b(stks);
 			if (alt && alt->holder->num == 1)
+			{
 				steps = alt;
+//				ft_printf("ALTERNATE only\n");
+			}
 			else
 			{
 				steps = ft_internal_loop(stks, index, index, 0);
 				if (alt && alt->holder->num < steps->holder->num)
 				{
-					//free(steps);
-//					ft_printf("ALTERNATE WON, num = %d\n", alt->holder->num);
-//					ft_printf("loop, num = \n", steps->holder->num);
+//					free(steps);
+//					ft_printf("   ALTERNATE num = %d\n", alt->holder->num);
+//					ft_printf("             num = %d\n", steps->holder->num);
 					steps = alt;
 				}
 				else
 				{
 //					if (alt)
-//						ft_printf("alternate, num = %d\n", alt->holder->num);
+//						ft_printf("             num = %d\n", alt->holder->num);
 //					else
-//						ft_printf("alternate, num = NULL\n");
-//					ft_printf("LOOP WON, num = \n", steps->holder->num);
+//						ft_printf("             num = NULL\n");
+//					ft_printf("   LOOP      num = %d\n", steps->holder->num);
 					if (alt)
 						free(alt);
 				}
 			}
 		}
+		total += steps->holder->num;
 		ft_use_print_and_free(stks, &steps);
 //		static int ind;
 //		ft_printf("-----------------------------index %d\n", ind++);
@@ -220,6 +225,7 @@ static int			ft_main_algorithm(t_stack *stks)
 	}
 	ft_make_b_nice(stks);
 	ft_return_to_home(stks);
+//	ft_printf("total: %d\n", total + 100);
 	return (1);
 }
 
