@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # variables
-TEMPFILE=resulttempfile.txt;
-RANGENUM=10000
 PUSH_SWAP=push_swap
 CHECKER=checker
+TEMPFILE=resulttempfile.txt;
 
 # unchanging variables
 YESNO=0;
@@ -13,10 +12,14 @@ RED='\033[0;31m';
 WHITE='\033[1m';
 CLN='\033[0m';
 RM=/bin/rm;
+RANGENUM=10000
+NUMMAX=5000
 WRONGCOUNT=0;
 OKCOUNT=0;
 SORTCOUNTEROK=0;
 SORTCOUNTERKO=0;
+MAXNUMBER=0;
+MINNUMBER=1000000;
 
 # push_swap and checker exist?
 if [ ! -e ${PUSH_SWAP} ]; then
@@ -30,7 +33,7 @@ fi
 # arguments
 if [ "$#" -eq 1 ]; then
 	NUMBERS=$1;
-	if [[ ${NUMBERS} -le 1 ]]; then
+	if [ ${NUMBERS} -le 1 ] || [ ${NUMBERS} -gt ${NUMMAX} ]; then
         echo "Error: wrong argument";
         exit 1;
     fi;
@@ -38,12 +41,12 @@ if [ "$#" -eq 1 ]; then
 	echo ${WHITE}${NUMBERS}${CLN} "random numbers";
 elif [ "$#" -eq 2 ]; then
     NUMBERS=$1;
-    if [[ ${NUMBERS} -le 0 ]]; then
+    if [ ${NUMBERS} -le 0 ] || [ ${NUMBERS} -gt ${NUMMAX} ]; then
         echo "Error: wrong argument";
         exit 1;
     fi;
     LOOPS=$2;
-    if [[ ${LOOPS} -le 0 ]]; then
+    if [ ${LOOPS} -le 0 ]; then
         echo "Error: wrong argument";
         exit 1;
     fi;
@@ -78,6 +81,13 @@ while [ ${LOOPS} -gt 0 ]; do
     echo "-----------------------";
     echo "operations: \c";
     OPER=$(cat ${TEMPFILE} | wc -l | tr -d " ");
+
+    if [ ${OPER} -ge ${MAXNUMBER} ]; then
+        MAXNUMBER=${OPER};
+    fi
+    if [ ${OPER} -le ${MINNUMBER} ]; then
+        MINNUMBER=${OPER};
+    fi
 
     if [ ${NUMBERS} -eq 3 ]; then
         if [ ${OPER} -gt 3 ]; then
@@ -145,7 +155,9 @@ else
 fi
 
 if [ ${LOOPSCOUNT} -gt 1 ]; then
-    echo "operations: ${OKCOUNT} OK / ${WRONGCOUNT} Wrong";
-    echo "sorting:    ${SORTCOUNTEROK} OK / ${SORTCOUNTERKO} KO";
+    echo "operations:       ${OKCOUNT} OK / ${WRONGCOUNT} Wrong";
+    echo "sorting:          ${SORTCOUNTEROK} OK / ${SORTCOUNTERKO} KO";
+    echo "max (operations): ${MAXNUMBER}";
+    echo "min (operations): ${MINNUMBER}";
 fi
 exit 0
