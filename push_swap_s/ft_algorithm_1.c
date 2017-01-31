@@ -12,64 +12,6 @@
 
 #include "../shared_s/push_swap.h"
 
-//static t_oper		*ft_check_steps2(t_stack *stks, int index)
-//{
-//	int				up_a;
-//	int				up_b;
-//	int				down_a;
-//	int				down_b;
-//	t_oper			*steps;
-//
-//	steps = NULL;
-//	ft_set_min_max(stks);
-//	ft_printf("up_a: %d\n", up_a = ft_up_a(stks, index));
-//	ft_printf("down_a: %d\n", down_a = ft_down_a(stks, index));
-//	ft_printf("up_b: %d\n", up_b = ft_up_b(stks, index));
-//	ft_printf("down_b: %d\n\n", down_b = ft_down_b(stks, index));
-////	steps = ft_merge_steps(up_a, down_a, up_b, down_b);
-//	return (steps);
-//}
-//
-//static int 			ft_test_function(t_stack *s)
-//{
-//	t_oper			*steps;
-//	int 			i;
-//	int 			index;
-//
-//	index = 6;
-//	steps = NULL;
-//	pb(s);
-//	pb(s);
-//	pb(s);
-//	pb(s);
-//	rrb(s);
-//	pb(s);
-//	pb(s);
-//
-//	s->flag = 1;
-//	ft_print_stacks(s);
-//	s->flag = 0;
-//	ft_printf("index: %d\n",  index);
-//	ft_printf("num a: %d\n\n", s->stk_a[index]);
-//	steps = ft_check_steps2(s, index);
-//	ft_printf("-----------------\n");
-//	ft_printf("max: %d\n", s->b_max);
-//	ft_printf("mx_i: %d\n", s->b_mxi);
-//	ft_printf("min: %d\n", s->b_min);
-//	ft_printf("mn_i: %d\n", s->b_mni);
-//	ft_printf("-----------------\n");
-//	ft_printf("num of operations: %d\n\n", steps->holder->num);
-//	ft_use_print_and_free(s, &steps);
-//	s->flag = 1;
-//	ft_print_stacks(s);
-//	s->flag = 0;
-//	return (0);
-//}
-
-/*
- * *********** *********** *********** *********** *********** ***********
- */
-
 static void			ft_return_to_home(t_stack *stks)
 {
 	int 			index;
@@ -177,11 +119,8 @@ static int			ft_main_algorithm(t_stack *stks)
 	int				index;
 	t_oper			*steps;
 	t_oper			*alt;
-	int 			total;
 
-//	return (ft_test_function(stks));
 	index = 0;
-	total = 0;
 	while (index < stks->size)
 	{
 		steps = NULL;
@@ -191,33 +130,22 @@ static int			ft_main_algorithm(t_stack *stks)
 		{
 			alt = ft_check_push_to_top_b(stks);
 			if (alt && alt->holder->num == 1)
-			{
 				steps = alt;
-//				ft_printf("ALTERNATE only\n");
-			}
 			else
 			{
 				steps = ft_internal_loop(stks, index, index, 0);
-				if (alt && alt->holder->num < steps->holder->num)
+				if (alt && alt->holder->num <= steps->holder->num)
 				{
 //					free(steps);
-//					ft_printf("   ALTERNATE num = %d\n", alt->holder->num);
-//					ft_printf("             num = %d\n", steps->holder->num);
 					steps = alt;
 				}
 				else
 				{
-//					if (alt)
-//						ft_printf("             num = %d\n", alt->holder->num);
-//					else
-//						ft_printf("             num = NULL\n");
-//					ft_printf("   LOOP      num = %d\n", steps->holder->num);
 					if (alt)
 						free(alt);
 				}
 			}
 		}
-		total += steps->holder->num;
 		ft_use_print_and_free(stks, &steps);
 //		static int ind;
 //		ft_printf("-----------------------------index %d\n", ind++);
@@ -225,7 +153,6 @@ static int			ft_main_algorithm(t_stack *stks)
 	}
 	ft_make_b_nice(stks);
 	ft_return_to_home(stks);
-//	ft_printf("total: %d\n", total + 100);
 	return (1);
 }
 

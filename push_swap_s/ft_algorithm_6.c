@@ -133,7 +133,7 @@ static int		ft_candidates(int ua, int da, int ub, int db)
 	winner = 0;
 	while (index < 4)
 	{
-		if (candidate[index] < candidate[4])
+		if (candidate[index] <= candidate[4])
 		{
 			candidate[4] = candidate[index];
 			winner = index;
