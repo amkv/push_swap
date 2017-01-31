@@ -3,6 +3,8 @@
 # variables
 TEMPFILE=resulttempfile.txt;
 RANGENUM=10000
+PUSH_SWAP=push_swap
+CHECKER=checker
 
 # unchanging variables
 YESNO=0;
@@ -16,6 +18,16 @@ OKCOUNT=0;
 SORTCOUNTEROK=0;
 SORTCOUNTERKO=0;
 
+# push_swap and checker exist?
+if [ ! -e ${PUSH_SWAP} ]; then
+    echo "${PUSH_SWAP} not found";
+    exit 1;
+elif [ ! -e ${PUSH_SWAP} ]; then
+    echo "${CHECKER} not found";
+    exit 1;
+fi
+
+# arguments
 if [ "$#" -eq 1 ]; then
 	NUMBERS=$1;
 	if [[ ${NUMBERS} -le 1 ]]; then
@@ -39,16 +51,12 @@ elif [ "$#" -eq 2 ]; then
     echo ${WHITE}${NUMBERS}${CLN} "random numbers each";
 else
    	echo "usage (default ${WHITE}2${CLN} numbers and ${WHITE}1${CLN} loop): sh pushchecker.sh [NUMBER] [LOOPS]";
+   	echo "      script can check: 3, 5, 100, 500 with warnings"
 	NUMBERS=2;
 	LOOPS=1;
 fi
 
-
-#elif [[ ${LOOPS} -eq 0 ]]; then
-#    echo "wrong argument";
-#    exit 1;
-#fi
-
+# copy variable
 LOOPSCOUNT=${LOOPS};
 
 # while loops
