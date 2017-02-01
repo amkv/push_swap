@@ -80,7 +80,7 @@ commands for checker:
 **rrr**  rra and rrb at the same time  
   
 You can run checker with 1 extra flag  
-**-g** Game mode - Try to sort stacks by yourself in interactive mode
+**-g** Game mode. Try to sort stacks by yourself in interactive mode
 
 ```
 ./checker -g 2 3 1
@@ -96,6 +96,20 @@ NEW GAME started
 (h) print history of commands
 (n) new game
 (q) quit
+  
+ - - - - - - - - - - - - - - 0
+
+ 0| 2
+ 1| 3
+ 2| 1
+    _   _
+    a   b
+                    top a:   0
+                    top b:   2
+                    elems a: 3
+                    elems b: 0
+
+rra - - - - - - - - - - - - - 1
 ~~~~
 ###pushcheker.sh
 ```
