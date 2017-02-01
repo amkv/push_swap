@@ -3,12 +3,12 @@
 Sorting algorithm between 2 stacks.  
 
 **Main goal is 2 programs:**  
-**./push_swap** - return commands for sorting the stack  
+**./push_swap** - return commands for sorting the stack "a"  
 	if number of digits == **3** - no more then **2-3** operations  
 	if number of digits <= **5** - no more then **8** operations  
 	if number of digits > 5 and number == **100** - no more then **700** operations  
 	if number of digits > 5 and number == **500** - no more then **5300** operations  
-**./checker** - using commands make manipulations with stacks and show result **OK/KO**  
+**./checker** - using commands make manipulations with stacks "a" and show the result **OK/KO**  
   
 The folders organization:  
 **push_swap_s** - push_swap program  
