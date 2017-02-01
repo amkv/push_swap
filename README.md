@@ -21,17 +21,47 @@ pushchecker.sh - script for multiple testing
 ```
 make
 ```
-then
+###push_swap
 ```
 ./push_swap 2 3 1
 ```
+~~~~
+rra
+~~~~
+
 You can run push_swap with extra flag  
 -v Show the stacks status after each operation
 
 ```
 ./push_swap -v 2 3 1
 ```
-or
+~~~~
+ - - - - - - - - - - - - - 0
+
+ 0| 2
+ 1| 3
+ 2| 1
+    _   _
+    a   b
+                    top a:   0
+                    top b:   2
+                    elems a: 3
+                    elems b: 0
+
+rra - - - - - - - - - - - - - 1
+
+ 0| 1
+ 1| 2
+ 2| 3
+    _   _
+    a   b
+                    top a:   0
+                    top b:   2
+                    elems a: 3
+                    elems b: 0
+~~~~
+
+###checker
 ```
 ./checker 2 3 1
 rra
@@ -58,6 +88,18 @@ You can run checker with 2 extra flags
 ./checker -v 2 3 1
 ./checker -g 2 3 1
 ```
+~~~~
+NEW GAME started
+- - - - - - - - - - - - - - -
+(l) usage/HELP
+(o) used operators list
+(c) clean mode
+(s) is sorted? - check the stack order
+(=) print stacks
+(h) print history of commands
+(n) new game
+(q) quit
+~~~~
 or
 ```
 A="2 3 1"; ./push_swap $A | ./cheker $A
