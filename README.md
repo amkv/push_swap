@@ -10,7 +10,7 @@ Sorting algorithm between 2 stacks.
 	if number of digits > 5 and number == **500** - no more then **5300** operations  
 **./checker** - using commands make manipulations with stacks "a" and show the result **OK**/**KO**  
   
-The folders organization:  
+The project organization:  
 **push_swap_s** - push_swap program  
 **checker_s** - checker program    
 **shared_s** - folder for shared functions  
