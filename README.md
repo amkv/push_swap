@@ -11,8 +11,8 @@ Main goal is 2 programs:
 ./checker - using commands make manipulations with stack and show result OK/KO  
   
 The folders organization:  
-push_swap_s - push_swap programm  
-checker_s - checker programm  
+push_swap_s - push_swap program  
+checker_s - checker program    
 shares_s - folder for shared functions  
 libft - shared libraries functions  
 pushchecker.sh - script for multiple testing  
@@ -35,4 +35,9 @@ rra
 or
 ```
 A="2 3 1"; ./push_swap $A | ./cheker $A
+```
+
+or
+```
+sh pushcheker.sh 100 5
 ```
