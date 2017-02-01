@@ -16,9 +16,9 @@
 # define MININT -2147483648
 # include "../libft/libft/libft.h"
 
-# pragma GCC diagnostic ignored "-Wunused-parameter"
-# pragma GCC diagnostic ignored "-Wunused-function"
-# pragma GCC diagnostic ignored "-Wunused-variable"
+//# pragma GCC diagnostic ignored "-Wunused-parameter"
+//# pragma GCC diagnostic ignored "-Wunused-function"
+//# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
 
 typedef struct	s_stack
@@ -101,20 +101,33 @@ void			rrr(t_stack *stks);
 */
 
 int				ft_push_swap(t_stack *stks);
+void			ft_make_b_nice(t_stack *stks);
+void			ft_return_to_home(t_stack *stks);
+
 t_oper			*ft_add_step(t_oper *step, int oper);
 void			ft_free_steps(t_oper **list);
+void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
 
+int				ft_eq_3(t_stack *stks);
+int				ft_eq_5(t_stack *stks);
+
+int				ft_candidates(int ua, int da, int ub, int db);
+t_oper			*ft_da_ub(int da, int ub);
+t_oper			*ft_ua_db(int ua, int db);
+t_oper			*ft_da_db(int da, int db);
+t_oper			*ft_ua_ub(int ua, int ub);
+
+void			ft_set_min_max_a(t_stack *stks);
+void			ft_set_min_max_b(t_stack *stks);
+
+t_oper			*ft_check_push_to_top_b(t_stack *s);
 int				ft_up_a(t_stack *stks, int index);
 int				ft_down_a(t_stack *stks, int index);
 int				ft_up_b(t_stack *s, int i);
 int				ft_down_b(t_stack *s, int index);
-void			ft_set_min_max_b(t_stack *stks);
 int				ft_up_b_helper(t_stack *stks, int index);
 int				ft_down_b_helper(t_stack *stks, int index);
 
-t_oper 			*ft_merge_steps(int ua, int da, int ub, int db);
-void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
-t_oper			*ft_check_push_to_top_b(t_stack *s);
 
 /*
 ** checker, game mode -g

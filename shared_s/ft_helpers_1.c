@@ -17,7 +17,7 @@ void		ft_no_change(t_stack *stks)
 	if (stks->flag == 0)
 		return ;
 	ft_printf("%s - - - - - - - - - - - - - %d\n",
-			  stks->last, (stks->step)++);
+				stks->last, (stks->step)++);
 	ft_printf("%10s no change\n", stks->last);
 }
 

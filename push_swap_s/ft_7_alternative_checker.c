@@ -1,45 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm_3.c                                   :+:      :+:    :+:   */
+/*   ft_7_alternative_checker.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 15:56:47 by akalmyko          #+#    #+#             */
-/*   Updated: 2017/01/24 15:56:48 by akalmyko         ###   ########.fr       */
+/*   Created: 2017/02/01 11:48:22 by akalmyko          #+#    #+#             */
+/*   Updated: 2017/02/01 11:48:24 by akalmyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared_s/push_swap.h"
 
 /*
- * To be on the top
- */
+** alternative checker
+*/
 
-int				ft_up_a(t_stack *stks, int index)
-{
-	int 		num;
-
-	if (index == stks->top_a)
-		return (0);
-	num = stks->top_a - index;
-	if (num < 0)
-		num = -1 * num;
-	return (num);
-}
-
-int				ft_down_a(t_stack *stks, int index)
-{
-	if (index == stks->size - 1 && stks->elems_a == 1)
-		return (0);
-	return (stks->size - index);
-}
-
-/*
- * ************ **************** ******************** ***************
- */
-
-static t_oper		*ft_to_b_up(t_stack *s, int up_a)
+static t_oper		*ft_to_b_up(int up_a)
 {
 	t_oper			*steps;
 
@@ -53,7 +30,7 @@ static t_oper		*ft_to_b_up(t_stack *s, int up_a)
 	return (steps);
 }
 
-static t_oper		*ft_to_b_down(t_stack *s, int dw_a)
+static t_oper		*ft_to_b_down(int dw_a)
 {
 	t_oper			*steps;
 
@@ -69,10 +46,10 @@ static t_oper		*ft_to_b_down(t_stack *s, int dw_a)
 
 t_oper				*ft_check_push_to_top_b(t_stack *s)
 {
-	int 			top_a;
-	int 			ntopb;
-	int 			up_a;
-	int 			dw_a;
+	int				top_a;
+	int				ntopb;
+	int				up_a;
+	int				dw_a;
 
 	ntopb = s->stk_b[s->top_b];
 	top_a = s->top_a;
@@ -83,9 +60,9 @@ t_oper				*ft_check_push_to_top_b(t_stack *s)
 			up_a = ft_up_a(s, top_a);
 			dw_a = ft_down_a(s, top_a);
 			if (up_a > dw_a)
-				return (ft_to_b_down(s, dw_a));
+				return (ft_to_b_down(dw_a));
 			else
-				return (ft_to_b_up(s, up_a));
+				return (ft_to_b_up(up_a));
 		}
 		top_a++;
 	}

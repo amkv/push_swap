@@ -13,12 +13,35 @@
 #include "../shared_s/push_swap.h"
 
 /*
- * up B (insert in b)
- */
+** main algorithm functions 2
+*/
+
+void		ft_set_min_max_a(t_stack *stks)
+{
+	int		i;
+
+	i = stks->top_a;
+	stks->a_min = stks->stk_a[i];
+	stks->a_max = stks->stk_a[i];
+	while (i < stks->size)
+	{
+		if (stks->stk_a[i] < stks->a_min)
+		{
+			stks->a_min = stks->stk_a[i];
+			stks->a_mni = i;
+		}
+		if (stks->stk_a[i] > stks->a_max)
+		{
+			stks->a_max = stks->stk_a[i];
+			stks->a_mxi = i;
+		}
+		i++;
+	}
+}
 
 void		ft_set_min_max_b(t_stack *stks)
 {
-	int 		i;
+	int		i;
 
 	i = stks->top_b;
 	stks->b_min = stks->stk_b[i];
@@ -39,72 +62,45 @@ void		ft_set_min_max_b(t_stack *stks)
 	}
 }
 
-int		ft_up_b_helper(t_stack *stks, int index)
+void		ft_make_b_nice(t_stack *stks)
 {
-	int 		num;
+	int		up_b;
+	int		down_b;
+	int		num;
 
-	if (index == stks->top_b)
-		return (0);
-	num = stks->top_b - index;
-	if (num < 0)
-		num = -1 * num;
-	return (num);
-}
-
-static void		ft_check_after_max_b(t_stack *s, int *win, int *elem, int index)
-{
-	int 		b_max_index;
-
-	*elem = 0;
-	b_max_index = s->b_mxi;
-	while (b_max_index < s->size)
-	{
-		if (s->stk_a[index] > s->stk_b[b_max_index])
+	ft_set_min_max_b(stks);
+	up_b = ft_up_b_helper(stks, stks->b_mxi);
+	down_b = ft_down_b_helper(stks, stks->b_mxi);
+	num = down_b;
+	(up_b <= down_b) ? (num = up_b) : (num);
+	if (stks->b_mxi != 0)
+		while (num--)
 		{
-			*win = b_max_index;
-			(*elem) = s->elems_b;
-			break ;
+			if (up_b < down_b)
+			{
+				rb(stks);
+				if (stks->flag == 0)
+					ft_printf("rb\n");
+			}
+			else
+			{
+				rrb(stks);
+				if (stks->flag == 0)
+					ft_printf("rrb\n");
+			}
 		}
-		b_max_index++;
-		(*elem)++;
-	}
 }
 
-static void		ft_check_before_max_b(t_stack *s, int *win, int index)
+void		ft_return_to_home(t_stack *stks)
 {
-	int 		b_max_index;
-	int 		top_b;
+	int		index;
 
-	b_max_index = s->b_mxi;
-	top_b = s->top_b;
-	while (top_b != b_max_index)
+	index = 0;
+	while (index < stks->size)
 	{
-		if (s->stk_a[index] > s->stk_b[top_b])
-		{
-			*win = top_b;
-			break ;
-		}
-		top_b++;
+		pa(stks);
+		if (stks->flag != 1)
+			ft_printf("pa\n");
+		index++;
 	}
-}
-
-int				ft_up_b(t_stack *s, int index)
-{
-	int			steps;
-	int 		elem;
-	int 		winner;
-
-//	ft_set_min_max_b(s);
-	if (s->stk_a[index] > s->b_max)
-		steps = ft_up_b_helper(s, s->b_mxi);
-	else if (s->stk_a[index] < s->b_min)
-		steps = ft_up_b_helper(s, s->b_mxi);
-	else
-	{
-		ft_check_after_max_b(s, &winner, &elem, index);
-		if (elem < s->elems_b)
-			ft_check_before_max_b(s, &winner, index);
-		steps = ft_up_b_helper(s, winner);
-	}
-	return (steps);
 }

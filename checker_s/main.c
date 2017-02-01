@@ -111,9 +111,10 @@ int				main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	stks = NULL;
-	commands = NULL;
 	if (ft_validator(&argc, argv, &tab, &flags) == -1)
 		ft_putstr_fd("Checker_validator_Error\n", 2);
+	else if (argc <= 1 || (argc <= 2 && flags[0]) || (argc <= 2 && flags[1]))
+		;
 	else
 	{
 		if (!(stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags)))

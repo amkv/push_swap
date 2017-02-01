@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm_6.c                                   :+:      :+:    :+:   */
+/*   ft_algorithm_9.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 17:19:10 by akalmyko          #+#    #+#             */
-/*   Updated: 2017/01/25 17:19:11 by akalmyko         ###   ########.fr       */
+/*   Created: 2017/02/01 10:48:54 by akalmyko          #+#    #+#             */
+/*   Updated: 2017/02/01 10:48:55 by akalmyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared_s/push_swap.h"
 
-static t_oper	*ft_ua_ub(int ua, int ub)
+/*
+** challenge for up and down variations
+*/
+
+t_oper			*ft_ua_ub(int ua, int ub)
 {
 	t_oper		*steps;
-	int 		num;
+	int			num;
 
 	steps = NULL;
 	if (ua > ub)
 		num = ua;
 	else
 		num = ub;
-	while (num)
+	while (num--)
 	{
 		if (ua > 0 && ub > 0)
 		{
@@ -37,53 +41,51 @@ static t_oper	*ft_ua_ub(int ua, int ub)
 		}
 		ua--;
 		ub--;
-		num--;
 	}
-	return (steps);
+	return (ft_add_step(steps, 4));
 }
 
-static t_oper	*ft_da_db(int da, int db)
+t_oper			*ft_da_db(int da, int db)
 {
 	t_oper		*steps;
-	int 		num;
+	int			num;
 
 	steps = NULL;
 	if (da > db)
 		num = da;
 	else
 		num = db;
-	while (num)
+	while (num--)
 	{
-		if (da > 0  && db > 0 )
+		if (da > 0 && db > 0)
 			steps = ft_add_step(steps, 10);
 		else
 		{
-			if (da > 0 )
+			if (da > 0)
 				steps = ft_add_step(steps, 8);
-			if (db > 0 )
+			if (db > 0)
 				steps = ft_add_step(steps, 9);
 		}
 		if (da > 0)
 			da--;
 		if (db > 0)
 			db--;
-		num--;
 	}
-	return (steps);
+	return (ft_add_step(steps, 4));
 }
 
-static t_oper	*ft_ua_db(int ua, int db)
+t_oper			*ft_ua_db(int ua, int db)
 {
 	t_oper		*steps;
-	int 		num;
+	int			num;
 
 	steps = NULL;
 	num = ua + db;
 	while (num)
 	{
-		if (ua > 0 )
+		if (ua > 0)
 			steps = ft_add_step(steps, 5);
-		if (db > 0 )
+		if (db > 0)
 			steps = ft_add_step(steps, 9);
 		if (ua > 0)
 			ua--;
@@ -91,13 +93,13 @@ static t_oper	*ft_ua_db(int ua, int db)
 			db--;
 		num--;
 	}
-	return (steps);
+	return (ft_add_step(steps, 4));
 }
 
-static t_oper	*ft_da_ub(int da, int ub)
+t_oper			*ft_da_ub(int da, int ub)
 {
 	t_oper		*steps;
-	int 		num;
+	int			num;
 
 	steps = NULL;
 	num = da + ub;
@@ -111,14 +113,14 @@ static t_oper	*ft_da_ub(int da, int ub)
 		ub--;
 		num--;
 	}
-	return (steps);
+	return (ft_add_step(steps, 4));
 }
 
-static int		ft_candidates(int ua, int da, int ub, int db)
+int				ft_candidates(int ua, int da, int ub, int db)
 {
-	int 		candidate[5];
-	int 		index;
-	int 		winner;
+	int			candidate[5];
+	int			index;
+	int			winner;
 
 	candidate[0] = ua - ub;
 	if (candidate[0] < 0)
@@ -141,22 +143,4 @@ static int		ft_candidates(int ua, int da, int ub, int db)
 		index++;
 	}
 	return (winner);
-}
-
-t_oper 			*ft_merge_steps(int ua, int da, int ub, int db)
-{
-	t_oper		*steps;
-	int 		winner;
-
-	steps = NULL;
-	winner = ft_candidates(ua, da, ub, db);
-	if (winner == 0)
-		steps = ft_ua_ub(ua, ub);
-	else if (winner == 1)
-		steps = ft_da_db(da, db);
-	else if (winner == 2)
-		steps = ft_ua_db(ua, db);
-	else if (winner == 3)
-		steps = ft_da_ub(da, ub);
-	return (ft_add_step(steps, 4));
 }

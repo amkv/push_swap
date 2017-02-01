@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm_2.c                                   :+:      :+:    :+:   */
+/*   ft_algorithm_5.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/23 13:15:15 by akalmyko          #+#    #+#             */
-/*   Updated: 2017/01/23 13:15:18 by akalmyko         ###   ########.fr       */
+/*   Created: 2017/01/24 20:06:38 by akalmyko          #+#    #+#             */
+/*   Updated: 2017/01/24 20:06:39 by akalmyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../shared_s/push_swap.h"
+
+/*
+** main algorithm functions 1
+*/
 
 void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
 {

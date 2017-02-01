@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 13:38:35 by akalmyko          #+#    #+#              #
-#    Updated: 2017/01/26 21:13:51 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/02/01 10:49:34 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,17 @@ SLIB = slib.a
 LIBFT_F = ../libft/
 LIBFT = libft.a
 OUT = ../
-CFILES = main.c ft_algorithm_1.c ft_algorithm_2.c ft_algorithm_3.c ft_algorithm_4.c
-CFILES += ft_algorithm_5.c ft_algorithm_6.c
+CFILES = main.c
+CFILES += ft_1_algorithm.c
+CFILES += ft_2_if_3_numbers.c
+CFILES += ft_3_if_5_numbers.c
+CFILES += ft_4_steps_manipulations.c
+CFILES += ft_5_main_functions_1.c
+CFILES += ft_6_index_checker.c
+CFILES += ft_7_alternative_checker.c
+CFILES += ft_8_a_stack_rotation.c
+CFILES += ft_9_b_stack_up_rotation.c
+CFILES += ft_10_b_stack_down_rotation.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)

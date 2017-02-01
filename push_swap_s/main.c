@@ -22,7 +22,7 @@ int				main(int argc, char **argv)
 	int			*flags;
 	t_stack		*stks;
 
-	if (argc < 1) // проверить в checker эту же проверку
+	if (argc <= 1)
 		return (0);
 	tab = NULL;
 	stks = NULL;
@@ -34,10 +34,6 @@ int				main(int argc, char **argv)
 			ft_putstr_fd("Error\n", 2);
 		else if (ft_push_swap(*&stks) == -1)
 			ft_putstr_fd("Algorithm_Error\n", 2);
-//		if (ft_is_stack_in_order(stks) == 1)
-//			ft_printf("OK\n");
-//		else
-//			ft_printf("KO\n");
 	}
 	ft_free_all(tab, stks, NULL, flags);
 	return (0);

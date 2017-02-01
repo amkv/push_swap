@@ -47,8 +47,6 @@ static int		ft_isduplicates(int *tab, int size)
 	int			index1;
 	int			index2;
 
-	if (size <= 1)
-		return (-1);
 	index1 = 0;
 	number = tab[index1];
 	while (index1 < size)

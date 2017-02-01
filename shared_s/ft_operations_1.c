@@ -58,7 +58,7 @@ void		sb(t_stack *stks)
 
 void		ss(t_stack *stks)
 {
-	int 	buffer;
+	int		buffer;
 
 	ft_strcpy(stks->last, "ss");
 	stks->opnum = 2;

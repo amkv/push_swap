@@ -80,7 +80,7 @@ void			rb(t_stack *stks)
 
 void			rr(t_stack *stks)
 {
-	int 		buffer;
+	int			buffer;
 
 	ft_strcpy(stks->last, "rr");
 	stks->opnum = 7;
