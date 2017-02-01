@@ -4,11 +4,11 @@ Sorting algorithm between 2 stacks.
 
 **Main goal is 2 programs:**  
 **./push_swap** - return commands for sorting the stack  
-	if number of digits == 3 - no more then 2-3 operations  
-	if number of digits <= 5 - no more then 8 operations  
-	if number of digits > 5 and number == 100 - no more then 700 operations  
-	if number of digits > 5 and number == 500 - no more then 5300 operations  
-**./checker** - using commands make manipulations with stack and show result OK/KO  
+	if number of digits == **3** - no more then **2-3** operations  
+	if number of digits <= **5** - no more then **8** operations  
+	if number of digits > 5 and number == **100** - no more then **700** operations  
+	if number of digits > 5 and number == **500** - no more then **5300** operations  
+**./checker** - using commands make manipulations with stacks and show result **OK/KO**  
   
 The folders organization:  
 **push_swap_s** - push_swap program  
@@ -25,10 +25,6 @@ make
 ```
 ./push_swap 2 3 1
 ```
-~~~~
-rra
-~~~~
-
 You can run push_swap with extra flag  
 **-v** Show the stacks status after each operation
 
@@ -36,7 +32,7 @@ You can run push_swap with extra flag
 ./push_swap -v 2 3 1
 ```
 ~~~~
- - - - - - - - - - - - - - 0
+ - - - - - - - - - - - - - - 0
 
  0| 2
  1| 3
@@ -106,7 +102,7 @@ A="2 3 1"; ./push_swap $A | ./cheker $A
 ```
 ###pushcheker.sh
 ```
-sh pushcheker.sh 100 5
+sh pushcheker.sh 100 2
 ```
 ~~~~
 2 loops
