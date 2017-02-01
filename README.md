@@ -21,3 +21,18 @@ pushchecker.sh - script for multiple testing
 ```
 make
 ```
+
+```
+./push_swap 2 3 1
+```
+or
+
+```
+./checker 2 3 1
+rra
+<RETURN or CTR+D>
+```
+or
+```
+A="2 3 1"; ./push_swap $A | ./cheker $A
+```
