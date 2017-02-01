@@ -13,7 +13,7 @@ Sorting algorithm between 2 stacks.
 The folders organization:  
 **push_swap_s** - push_swap program  
 **checker_s** - checker program    
-**shares_s** - folder for shared functions  
+**shared_s** - folder for shared functions  
 libft - shared libraries functions  
 **pushchecker.sh** - script for multiple testing  
 
