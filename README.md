@@ -1,6 +1,7 @@
 # push_swap
 
 Sorting algorithm between 2 stacks.  
+
 Main goal is 2 programs:  
 ./push_swap - return commands for sorting the stack  
 	if number of digits == 3 - no more then 2-3 operations  
@@ -16,6 +17,7 @@ shares_s - folder for shared functions
 libft - shared libraries functions  
 pushchecker.sh - script for multiple testing  
 
+###How to run?
 ```
 make
 ```
