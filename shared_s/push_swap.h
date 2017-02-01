@@ -41,9 +41,15 @@ typedef struct	s_stack
 	int 		clear;			// флаг для очистки терминала
 	char 		last[4];		// название последнего оператора
 	int 		opnum;			// цифровое обозначение последней операции (название оператора)
+
+	int 		a_max;			// максимальное число в стеке a
+	int 		a_mxi;			// индекс максимального числа в стеке a
+	int 		a_min;			// минимальное число в стеке b
+	int 		a_mni;			// индекс минимального числа в стеке a
+
 	int 		b_max;			// максимальное число в стеке b
 	int 		b_mxi;			// индекс максимального числа в стеке b
-	int 		b_min;			// минимальное число в стеке a
+	int 		b_min;			// минимальное число в стеке b
 	int 		b_mni;			// индекс минимального числа в стеке b
 }				t_stack;
 
@@ -102,7 +108,7 @@ int				ft_up_a(t_stack *stks, int index);
 int				ft_down_a(t_stack *stks, int index);
 int				ft_up_b(t_stack *s, int i);
 int				ft_down_b(t_stack *s, int index);
-void			ft_set_min_max(t_stack *stks);
+void			ft_set_min_max_b(t_stack *stks);
 int				ft_up_b_helper(t_stack *stks, int index);
 int				ft_down_b_helper(t_stack *stks, int index);
 

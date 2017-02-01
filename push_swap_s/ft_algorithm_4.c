@@ -16,7 +16,7 @@
  * up B (insert in b)
  */
 
-void		ft_set_min_max(t_stack *stks)
+void		ft_set_min_max_b(t_stack *stks)
 {
 	int 		i;
 
@@ -94,7 +94,7 @@ int				ft_up_b(t_stack *s, int index)
 	int 		elem;
 	int 		winner;
 
-//	ft_set_min_max(s);
+//	ft_set_min_max_b(s);
 	if (s->stk_a[index] > s->b_max)
 		steps = ft_up_b_helper(s, s->b_mxi);
 	else if (s->stk_a[index] < s->b_min)

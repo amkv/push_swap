@@ -22,7 +22,7 @@ int				main(int argc, char **argv)
 	int			*flags;
 	t_stack		*stks;
 
-	if (argc <= 2) // проверить в checker эту же проверку
+	if (argc < 1) // проверить в checker эту же проверку
 		return (0);
 	tab = NULL;
 	stks = NULL;

@@ -17,6 +17,10 @@ static void		ft_set_a(t_stack *stks, int *stack_a, int size)
 	stks->stk_a = stack_a;
 	stks->top_a = 0;
 	stks->elems_a = size;
+	stks->a_max = 0;
+	stks->a_min = 0;
+	stks->a_mxi = 0;
+	stks->a_mni = 0;
 }
 
 static void		ft_set_b(t_stack *stks, int size)

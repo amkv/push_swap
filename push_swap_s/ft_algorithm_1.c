@@ -32,12 +32,12 @@ static void 		ft_make_b_nice(t_stack *stks)
 	int 			down_b;
 	int 			num;
 
-	ft_set_min_max(stks);
+	ft_set_min_max_b(stks);
 	up_b = ft_up_b_helper(stks, stks->b_mxi);
 	down_b = ft_down_b_helper(stks, stks->b_mxi);
 	if (stks->b_mxi != 0)
 	{
-		if (up_b < down_b)
+		if (up_b <= down_b)
 			num = up_b;
 		else
 			num = down_b;
@@ -68,7 +68,7 @@ static t_oper		*ft_check_steps(t_stack *stks, int index)
 	int				down_b;
 	t_oper			*steps;
 
-	ft_set_min_max(stks);
+	ft_set_min_max_b(stks);
 //	ft_printf("-----------------\n");
 //	ft_printf("up_a: %d\n", up_a = ft_up_a(stks, index));
 //	ft_printf("down_a: %d\n", down_a = ft_down_a(stks, index));
@@ -126,6 +126,13 @@ static int			ft_main_algorithm(t_stack *stks)
 		steps = NULL;
 		if (index <= 1)
 			steps = ft_add_step(steps, 4);
+//		else if (index == stks->size)
+//		{
+//			ft_set_min_max_b(stks);
+//			if (stks->stk_a[stks->top_a] > stks->b_max)
+//				index++;
+//				continue;
+//		}
 		else
 		{
 			alt = ft_check_push_to_top_b(stks);
@@ -156,6 +163,68 @@ static int			ft_main_algorithm(t_stack *stks)
 	return (1);
 }
 
+static	int 	ft_eq_5(t_stack *stks)
+{
+	int 	index;
+
+	index = 0;
+	while (index < stks->size)
+	{
+
+		index++;
+	}
+	return (1);
+}
+
+static void 	ft_set_min_max_a(t_stack *stks)
+{
+	int 	i;
+
+	i = stks->top_a;
+	stks->a_min = stks->stk_a[i];
+	stks->a_max = stks->stk_a[i];
+	while (i < stks->size)
+	{
+		if (stks->stk_a[i] < stks->a_min)
+		{
+			stks->a_min = stks->stk_a[i];
+			stks->a_mni = i;
+		}
+		if (stks->stk_a[i] > stks->a_max)
+		{
+			stks->a_max = stks->stk_a[i];
+			stks->a_mxi = i;
+		}
+	i++;
+	}
+}
+
+static int 		ft_eq_3(t_stack *stks)
+{
+	t_oper		*steps;
+
+	ft_set_min_max_a(stks);
+	steps = NULL;
+	if (stks->a_mxi == 1 && stks->a_mni == 0)
+	{
+		steps = ft_add_step(steps, 8);
+		steps = ft_add_step(steps, 0);
+	}
+	else if (stks->a_mxi == 0 && stks->a_mni == 2)
+	{
+		steps = ft_add_step(steps, 5);
+		steps = ft_add_step(steps, 0);
+	}
+	else if (stks->a_mxi == 0 && stks->a_mni == 1)
+		steps = ft_add_step(steps, 5);
+	else if (stks->a_mxi == 2 && stks->a_mni == 1)
+		steps = ft_add_step(steps, 0);
+	else if (stks->a_mxi == 1 && stks->a_mni == 2)
+		steps = ft_add_step(steps, 8);
+	ft_use_print_and_free(stks, &steps);
+	return (1);
+}
+
 int					ft_push_swap(t_stack *stks)
 {
 	if (ft_is_stack_in_order(stks) == 1)
@@ -166,7 +235,11 @@ int					ft_push_swap(t_stack *stks)
 		ft_printf("sa\n");
 		return (1);
 	}
-	if (ft_main_algorithm(*&stks) == -1)
+	else if (stks->size == 3)
+		return (ft_eq_3(stks));
+	else if (stks->size <= 5)
+		return (ft_eq_5(stks));
+	else if (ft_main_algorithm(*&stks) == -1)
 		return (-1);
 	else
 		return (1);

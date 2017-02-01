@@ -101,8 +101,8 @@ while [ ${LOOPS} -gt 0 ]; do
         if [ ${OPER} -gt 12 ]; then
             echo "${RED}WRONG${CLN} \c";
             ((WRONGCOUNT++));
-        elif [ ${OPER} -le 8 ]; then
-            echo ${WHITE}"Great!"${CLN};
+        elif [ ${OPER} -le 8 ] && [ ${OPER} -gt 0 ]; then
+            echo ${WHITE}"Great! \c"${CLN};
         else
             echo ${WHITE}"OK \c"${CLN};
             ((OKCOUNT++));
