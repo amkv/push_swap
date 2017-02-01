@@ -79,12 +79,11 @@ commands for checker:
 **rrb**  reverse rotate b - shift down all elements of stack b by 1  
 **rrr**  rra and rrb at the same time  
   
-You can run checker with 2 extra flags  
+You can run checker with 1 extra flag  
 **-v** Show the stacks status after each operation  
 **-g** Game mode - Try to sort stacks by yourself in interactive mode
 
 ```
-./checker -v 2 3 1
 ./checker -g 2 3 1
 ```
 ~~~~
