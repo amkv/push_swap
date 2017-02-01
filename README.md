@@ -21,6 +21,9 @@ libft - shared libraries functions
 ```
 make
 ```
+```
+A="2 3 1"; ./push_swap $A | ./cheker $A
+```
 ###push_swap
 ```
 ./push_swap 2 3 1
@@ -96,10 +99,6 @@ NEW GAME started
 (n) new game
 (q) quit
 ~~~~
-or
-```
-A="2 3 1"; ./push_swap $A | ./cheker $A
-```
 ###pushcheker.sh
 ```
 sh pushcheker.sh 100 2
