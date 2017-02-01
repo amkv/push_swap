@@ -80,7 +80,6 @@ commands for checker:
 **rrr**  rra and rrb at the same time  
   
 You can run checker with 1 extra flag  
-**-v** Show the stacks status after each operation  
 **-g** Game mode - Try to sort stacks by yourself in interactive mode
 
 ```
