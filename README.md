@@ -97,19 +97,17 @@ NEW GAME started
 (n) new game
 (q) quit
   
- - - - - - - - - - - - - - - 0
+pb - - - - - - - - - - - - - 1
 
- 0| 2
- 1| 3
- 2| 1
+ 0|
+ 1| 1
+ 2| 2   3
     _   _
     a   b
-                    top a:   0
+                    top a:   1
                     top b:   2
-                    elems a: 3
-                    elems b: 0
-
-rra - - - - - - - - - - - - - 1
+                    elems a: 2
+                    elems b: 1
 ~~~~
 ###pushcheker.sh
 ```
