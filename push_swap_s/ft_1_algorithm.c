@@ -124,8 +124,8 @@ static int			ft_main_algorithm(t_stack *stks)
 			}
 		}
 		ft_use_print_and_free(stks, &steps);
-		static int ind;
-		ft_printf("-----------------------------index %d\n", ind++);
+//		static int ind;
+//		ft_printf("-----------------------------index %d\n", ind++);
 		index++;
 	}
 	ft_make_b_nice(stks);
@@ -145,8 +145,8 @@ int					ft_push_swap(t_stack *stks)
 	}
 	else if (stks->size == 3)
 		return (ft_eq_3(stks));
-	else if (stks->size <= 5)
-		return (ft_eq_5(stks));
+//	else if (stks->size <= 5)
+//		return (ft_eq_5(stks));
 	else if (ft_main_algorithm(*&stks) == -1)
 		return (-1);
 	else
