@@ -124,8 +124,8 @@ static int			ft_main_algorithm(t_stack *stks)
 			}
 		}
 		ft_use_print_and_free(stks, &steps);
-//		static int ind;
-//		ft_printf("-----------------------------index %d\n", ind++);
+		static int ind;
+		ft_printf("-----------------------------index %d\n", ind++);
 		index++;
 	}
 	ft_make_b_nice(stks);

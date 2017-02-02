@@ -22,7 +22,9 @@ void		ft_set_min_max_a(t_stack *stks)
 
 	i = stks->top_a;
 	stks->a_min = stks->stk_a[i];
+	stks->a_mni = i;
 	stks->a_max = stks->stk_a[i];
+	stks->a_mxi = i;
 	while (i < stks->size)
 	{
 		if (stks->stk_a[i] < stks->a_min)
@@ -45,7 +47,9 @@ void		ft_set_min_max_b(t_stack *stks)
 
 	i = stks->top_b;
 	stks->b_min = stks->stk_b[i];
+	stks->b_mni = i;
 	stks->b_max = stks->stk_b[i];
+	stks->b_mxi = i;
 	while (i < stks->size)
 	{
 		if (stks->stk_b[i] <= stks->b_min)

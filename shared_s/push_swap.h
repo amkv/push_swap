@@ -16,9 +16,9 @@
 # define MININT -2147483648
 # include "../libft/libft/libft.h"
 
-//# pragma GCC diagnostic ignored "-Wunused-parameter"
-//# pragma GCC diagnostic ignored "-Wunused-function"
-//# pragma GCC diagnostic ignored "-Wunused-variable"
+# pragma GCC diagnostic ignored "-Wunused-parameter"
+# pragma GCC diagnostic ignored "-Wunused-function"
+# pragma GCC diagnostic ignored "-Wunused-variable"
 //# pragma GCC diagnostic ignored "-Wreturn-type"
 
 typedef struct	s_stack
