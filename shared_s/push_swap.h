@@ -99,17 +99,18 @@ void			rrr(t_stack *stks);
 /*
 ** push_swap
 */
-
+int 			ft_eq_2(t_stack *stks);
+int				ft_eq_3(t_stack *stks, t_oper *steps, int incident);
+int				ft_eq_5(t_stack *stks, int incident);
 int				ft_push_swap(t_stack *stks);
+
 void			ft_make_b_nice(t_stack *stks);
+void			ft_make_a_nice(t_stack *stks);
 void			ft_return_to_home(t_stack *stks);
 
 t_oper			*ft_add_step(t_oper *step, int oper);
 void			ft_free_steps(t_oper **list);
 void			ft_use_print_and_free(t_stack *stks, t_oper **answers);
-
-int				ft_eq_3(t_stack *stks);
-int				ft_eq_5(t_stack *stks);
 
 int				ft_candidates(int ua, int da, int ub, int db);
 t_oper			*ft_da_ub(int da, int ub);
