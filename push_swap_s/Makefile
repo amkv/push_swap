@@ -6,7 +6,7 @@
 #    By: akalmyko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 13:38:35 by akalmyko          #+#    #+#              #
-#    Updated: 2017/02/01 10:49:34 by akalmyko         ###   ########.fr        #
+#    Updated: 2017/02/03 17:57:11 by akalmyko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ CFILES += ft_7_alternative_checker.c
 CFILES += ft_8_a_stack_rotation.c
 CFILES += ft_9_b_stack_up_rotation.c
 CFILES += ft_10_b_stack_down_rotation.c
+CFILES += ft_11_final_a_rotation.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)

@@ -84,17 +84,18 @@ void		ft_make_b_nice(t_stack *stks)
 			{
 				rb(stks);
 				if (stks->flag == 0)
-					ft_printf("rb\n");
+					ft_putstr("rb\n");
 			}
 			else
 			{
 				rrb(stks);
 				if (stks->flag == 0)
-					ft_printf("rrb\n");
+					ft_putstr("rrb\n");
 			}
 		}
 }
 
+// depricated
 void		ft_return_to_home(t_stack *stks)
 {
 	int		index;

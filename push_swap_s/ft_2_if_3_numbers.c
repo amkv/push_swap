@@ -19,7 +19,7 @@
 int				ft_eq_2(t_stack *stks)
 {
 	sa(stks);
-	ft_printf("sa\n");
+	ft_putstr("sa\n");
 	return (1);
 }
 
@@ -44,12 +44,12 @@ int				ft_eq_3(t_stack *stks, t_oper *steps_five, int incident)
 	t_oper		*steps;
 
 	steps = NULL;
-	if (incident == 1) // just 3 numbers
+	if (incident == 1)
 	{
 		steps = ft_steps_for_3(stks, steps);
 		ft_use_print_and_free(stks, &steps);
 	}
-	else if (incident == 2) // if 5 numbers
+	else if (incident == 2)
 	{
 		(stks->size == 4) ? (stks->top_a = 1) : (0);
 		(stks->size == 5) ? (stks->top_a = 2) : (0);
@@ -58,9 +58,9 @@ int				ft_eq_3(t_stack *stks, t_oper *steps_five, int incident)
 		stks->top_a = 0;
 		ft_use_print_and_free(stks, &steps);
 	}
-	else if (incident == 3) // if main algorithm
+	else if (incident == 3)
 	{
-		(steps_five) ? (steps = steps_five) : (0);
+		ft_use_print_and_free(stks, &steps_five);
 		steps = ft_steps_for_3(stks, steps);
 		ft_use_print_and_free(stks, &steps);
 	}

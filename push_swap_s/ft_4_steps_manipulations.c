@@ -45,7 +45,10 @@ void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
 //			ft_printf("     RRR double rotation\n");
 		oper[copy->command](stks);
 		if (stks->flag == 0)
-			ft_printf("%s\n", copy->oper);
+		{
+			ft_putstr(copy->oper);
+			ft_putchar('\n');
+		}
 		free(copy->oper);
 		free(copy);
 		copy = NULL;

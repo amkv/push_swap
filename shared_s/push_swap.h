@@ -129,6 +129,8 @@ int				ft_down_b(t_stack *s, int index);
 int				ft_up_b_helper(t_stack *stks, int index);
 int				ft_down_b_helper(t_stack *stks, int index);
 
+void			ft_make_nice_a_and_say_bye_to_b(t_stack *stks);
+
 
 /*
 ** checker, game mode -g

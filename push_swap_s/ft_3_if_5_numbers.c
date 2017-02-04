@@ -75,19 +75,20 @@ static t_oper	*ft_second_number(t_oper *steps, t_stack *stks)
 	int			place;
 
 	place = ft_check_the_place_in_a(stks);
-	if (place == 1)
+	if (place == stks->top_a)
 		;
-	else if (place == 2)
+	else if (place == stks->top_a + 1)
 		steps = ft_add_step(steps, 5);
-	else if (place == 3)
+	else if (place == stks->top_a + 2)
 		steps = ft_add_step(ft_add_step(steps, 5), 5);
-	else if (place == 4)
+	else if (place == stks->top_a + 3)
 		steps = ft_add_step(steps, 8);
 	return (ft_add_step(steps, 3));
 }
 
 static t_oper	*ft_first_number(t_oper *steps, t_stack *s)
 {
+	ft_set_min_max_a(s);
 	if (s->stk_b[s->top_b] < s->a_min)
 		steps = ft_add_step(steps, 3);
 	else if (s->stk_b[s->top_b] > s->a_max)
@@ -104,13 +105,12 @@ int				ft_eq_5(t_stack *stks, int incident)
 	t_oper		*steps;
 
 	steps = ft_add_step(NULL, 4);
-	if (stks->size == 5)
+	if (stks->elems_a == 5 || stks->size == 5)
 		steps = ft_add_step(steps, 4);
 	ft_eq_3(stks, steps, incident);
-	ft_set_min_max_a(stks);
 	steps = ft_first_number(NULL, stks);
 	ft_use_print_and_free(stks, &steps);
-	if (stks->size == 5)
+	if (stks->size == 5 || stks->elems_a == 5 || incident == 3)
 	{
 		ft_set_min_max_a(stks);
 		steps = ft_second_number(NULL, stks);

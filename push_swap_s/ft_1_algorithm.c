@@ -111,27 +111,14 @@ static int		ft_main_loop(t_stack *stks, int i, t_oper *steps, t_oper *alt)
 //		static int ind;
 //		ft_printf("-----------------------------i %d\n", ind++);
 		i++;
-//		if (stks->elems_a == 5)
-//			break ;
+		if (stks->elems_a == 3)
+			break;
 	}
-//	stks->flag = 1;
-//	ft_print_stacks(stks);
-//	stks->flag = 0;
-//	ft_printf("------------------------------\n");
-
 //	ft_eq_5(stks, 3);
-//	stks->flag = 1;
-//	ft_print_stacks(stks);
-//	stks->flag = 0;
-//	ft_printf("------------------------------\n");
-
-//	ft_make_a_nice(stks);
-//	stks->flag = 1;
-//	ft_print_stacks(stks);
-//	stks->flag = 0;
-//	ft_printf("------------------------------\n");
-	ft_make_b_nice(stks);
-	ft_return_to_home(stks);
+	ft_eq_3(stks, NULL, 3);
+//	ft_make_b_nice(stks);
+//	ft_return_to_home(stks);
+	ft_make_nice_a_and_say_bye_to_b(stks);
 	return (1);
 }
 
