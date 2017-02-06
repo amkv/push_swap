@@ -16,47 +16,6 @@
 ** main algorithm functions 1
 */
 
-void			ft_use_print_and_free(t_stack *stks, t_oper **answers)
-{
-	t_oper		*copy;
-	t_oper		*holder;
-	void		(*oper[11])(t_stack*);
-
-	if (*answers == NULL)
-		return ;
-	oper[0] = &sa;
-	oper[1] = &sb;
-	oper[2] = &ss;
-	oper[3] = &pa;
-	oper[4] = &pb;
-	oper[5] = &ra;
-	oper[6] = &rb;
-	oper[7] = &rr;
-	oper[8] = &rra;
-	oper[9] = &rrb;
-	oper[10] = &rrr;
-	copy = (*answers)->holder;
-	while (copy)
-	{
-		holder = copy->next;
-//		if (copy->command == 7)
-//			ft_printf("     RR double rotation\n");
-//		if (copy->command == 10)
-//			ft_printf("     RRR double rotation\n");
-		oper[copy->command](stks);
-		if (stks->flag == 0)
-		{
-			ft_putstr(copy->oper);
-			ft_putchar('\n');
-		}
-		free(copy->oper);
-		free(copy);
-		copy = NULL;
-		copy = holder;
-	}
-	*answers = NULL;
-}
-
 static char		*ft_return_step_name(int oper)
 {
 	if (oper == 0)

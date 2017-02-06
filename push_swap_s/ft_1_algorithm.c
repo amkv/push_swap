@@ -30,23 +30,6 @@ static t_oper	*ft_check_steps(t_stack *stks, int index)
 	up_b = ft_up_b(stks, index);
 	down_b = ft_down_b(stks, index);
 	winner = ft_candidates(up_a, down_a, up_b, down_b);
-
-//	{
-//		ft_printf("-----------------\n");
-//		ft_printf("up_a: %d\n", up_a = ft_up_a(stks, index));
-//		ft_printf("down_a: %d\n", down_a = ft_down_a(stks, index));
-//		ft_printf("up_b: %d\n", up_b = ft_up_b(stks, index));
-//		ft_printf("down_b: %d\n\n", down_b = ft_down_b(stks, index));
-//		if (winner == 0)
-//			ft_printf("winner[0]: ua_ub\n");
-//		else if (winner == 1)
-//			ft_printf("winner[1]: da_db\n");
-//		else if (winner == 2)
-//			ft_printf("winner[2]: ua_db\n");
-//		else if (winner == 3)
-//			ft_printf("winner[3]: da_ub\n");
-//	}
-
 	if (winner == 0)
 		return (ft_ua_ub(up_a, up_b));
 	else if (winner == 1)
@@ -103,21 +86,14 @@ static int		ft_main_loop(t_stack *stks, int i, t_oper *steps, t_oper *alt)
 				ft_free_steps(&steps);
 				steps = alt;
 			}
-			else
-				if (alt)
-					ft_free_steps(&alt);
+			else if (alt)
+				ft_free_steps(&alt);
 		}
 		ft_use_print_and_free(stks, &steps);
-//		static int ind;
-//		ft_printf("-----------------------------i %d\n", ind++);
 		i++;
-		if (stks->elems_a == 3)
-			break;
+		if (stks->elems_a == 5)
+			break ;
 	}
-//	ft_eq_5(stks, 3);
-	ft_eq_3(stks, NULL, 3);
-//	ft_make_b_nice(stks);
-//	ft_return_to_home(stks);
 	ft_make_nice_a_and_say_bye_to_b(stks);
 	return (1);
 }

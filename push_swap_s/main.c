@@ -27,13 +27,13 @@ int				main(int argc, char **argv)
 	tab = NULL;
 	stks = NULL;
 	if (ft_validator(&argc, argv, &tab, &flags) == -1)
-		ft_putstr_fd("Push_swap_validator_Error\n", 2);
+		ft_putstr_fd("Error\n", 2);
 	else
 	{
 		if (!(stks = ft_new_stks(*&tab, argc - flags[0] - flags[1], flags)))
 			ft_putstr_fd("Error\n", 2);
 		else if (ft_push_swap(*&stks) == -1)
-			ft_putstr_fd("Algorithm_Error\n", 2);
+			ft_putstr_fd("Error\n", 2);
 	}
 	ft_free_all(tab, stks, NULL, flags);
 	return (0);

@@ -76,7 +76,7 @@ void			rrb(t_stack *stks)
 
 void			rrr(t_stack *stks)
 {
-	int 		buffer;
+	int			buffer;
 
 	ft_strcpy(stks->last, "rrr");
 	stks->opnum = 10;

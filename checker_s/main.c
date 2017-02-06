@@ -112,7 +112,7 @@ int				main(int argc, char **argv)
 		return (0);
 	stks = NULL;
 	if (ft_validator(&argc, argv, &tab, &flags) == -1)
-		ft_putstr_fd("Checker_validator_Error\n", 2);
+		ft_putstr_fd("Error\n", 2);
 	else if (argc <= 1 || (argc <= 2 && flags[0]) || (argc <= 2 && flags[1]))
 		;
 	else
@@ -122,7 +122,7 @@ int				main(int argc, char **argv)
 		else if (stks->game == 1 && (stks->flag = 1))
 			ft_game_mode(stks);
 		else if (ft_read_arguments(&commands) == -1)
-			ft_putstr_fd("Checker_read_Error\n", 2);
+			ft_putstr_fd("Error\n", 2);
 		else
 			ft_use_commands(commands, stks);
 	}

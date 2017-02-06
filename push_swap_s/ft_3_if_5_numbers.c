@@ -62,7 +62,7 @@ static int		ft_check_the_place_in_a(t_stack *stks)
 	}
 	if (elem > 1)
 	{
-		index = 1;
+		index = stks->top_a;
 		while (index != stks->a_mni)
 			if (stks->stk_b[stks->top_b] < stks->stk_a[index++])
 				return (--index);
